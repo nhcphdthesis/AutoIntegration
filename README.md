@@ -51,13 +51,13 @@ CIS and RIS. CIS use two seperate tasks to receive response (accept vs. reject).
 
 exclusive-receivers, multiple-senders, and sequenced-receivers.
 
-
+![Case 1](http://photo.yupoo.com/jjfd/Dlv9KvKu/medish.jpg)
 
 ### case 2
 
 CIS and RIS. variation is CIS now has the receive task for study completion. The order of completion and report is different in CIS and RIS. This needs resequencer.
 
-![Case 1](http://photo.yupoo.com/jjfd/DlvcqqOS/medish.jpg)
+![Case 2](http://photo.yupoo.com/jjfd/DlvcqqOS/medish.jpg)
 
 
 
