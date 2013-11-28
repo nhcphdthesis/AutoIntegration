@@ -11,7 +11,7 @@ import model.process.interfacemodel.InterfaceModel;
 import model.process.interfacemodel.Operation;
 
 public class Scenario {
-	public static CollaborationModel createChoreography() {
+	public static CollaborationModel createChoreographyComplex1() {
 		Process p1 = new Process("p1");
 		Process p2 = new Process("p2");
 		Process p3 = new Process("p3");
@@ -155,7 +155,7 @@ public class Scenario {
 		return c1;
 	}
 	
-	public static CollaborationModel createChoreography_complex() {
+	public static CollaborationModel createChoreography_complex2() {
 		Process p1 = new Process("p1");
 		Process p2 = new Process("p2");
 		Process p3 = new Process("p3");
@@ -425,7 +425,7 @@ public class Scenario {
 		ReceiveTask p1_r_complete = new ReceiveTask("receive complete");
 		p1.addTask(p1_r_complete);
 		
-		p1.assertSeq(p1_r_complete, p1_r_report);
+		p1.assertSeq(p1_r_report, p1_r_complete);
 		p1.assertExc(p1_r_accept, p1_r_reject);
 		
 		ReceiveTask p2_r_order = new ReceiveTask("receive order request");
