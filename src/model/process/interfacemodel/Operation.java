@@ -4,7 +4,19 @@ public class Operation {
  InterfaceModel interfce;
  String name;
  Message input;
- Message output;
+ public Message getInput() {
+	return input;
+}
+public void setInput(Message input) {
+	this.input = input;
+}
+public Message getOutput() {
+	return output;
+}
+public void setOutput(Message output) {
+	this.output = output;
+}
+Message output;
 public InterfaceModel getInterfce() {
 	return interfce;
 }

@@ -68,5 +68,8 @@ public class SolutionGenerator {
 
 		return solution;
 	}
-	
+	public void generateTranslator(MessageFlow mf){
+		ArrayList<String> defs = MappingFinder.getInstance().findMappingDef(mf.getSource().getOperation().getOutput(), mf.getSource().getOperation().getInput());
+		prl(defs);
+	}
 }
