@@ -5,9 +5,9 @@ Automatic design integration solutions
 
 finds behavior mismatch patterns, generate routers, and composite integration solution.
 
-*Input*: the integration scenario modeled using BPMN collaboration diagram, the interface model describing information of actual interfaces including service-oriented operation and messages. The messages are semantically annotated using concepts from the domain ontology.
+**Input**: the integration scenario modeled using BPMN collaboration diagram, the interface model describing information of actual interfaces including service-oriented operation and messages. The messages are semantically annotated using concepts from the domain ontology.
 
-*Output*: the integration solution that addresses solution to message semantic and behaivor mismatches. Semantic translator is generated to execute ontology mappings from source ontology to target ontology. Enterprise Integration Pattern routers are generated to route messages to mediate the behavior mismatches.
+**Output**: the integration solution that addresses solution to message semantic and behaivor mismatches. Semantic translator is generated to execute ontology mappings from source ontology to target ontology. Enterprise Integration Pattern routers are generated to route messages to mediate the behavior mismatches.
 
 
 Test Cases
@@ -17,7 +17,21 @@ Test Cases
 
 client exchange messages with server. One loop-sender pattern, one loop-receiver pattern.
 
-![SimpleLoop](http://photo.yupoo.com/jjfd/Dlv9KJZX/medium.jpg)
+![SimpleLoop](/cases/SimpleLoop.png)
+
+_Output_
+
+[Channel: channel [from=connector-DefaultOperation: client request, to=auto-agg-loopsender]
+, Channel: channel [from=auto-agg-loopsender, to=connector-DefaultOperation: server receive]
+, Channel: channel [from=connector-DefaultOperation: server response, to=auto-splitter]
+, Channel: channel [from=auto-splitter, to=connector-DefaultOperation: client receive]
+]
+
+Which means:
+
+Flow 1: Client-request-connector -> aggregator -> Server-resequest-connector.
+
+Flow 2: Server-response-connector -> splitter -> Client-response-connector.
 
 
 ###Simple Exclusive
