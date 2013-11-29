@@ -51,6 +51,9 @@ public class SolutionGenerator {
 				mf.sortRouters();
 				System.out.println(mf.getName()+":"+mf.getRouters().toString());
 				Mediator last = ec_inbound;
+				
+				generateTranslator(mf);
+				
 				for (int i=0;i<mf.getRouters().size();i++){
 					Router router = mf.getRouters().get(i);
 						Channel c = new Channel("channel");
@@ -68,8 +71,13 @@ public class SolutionGenerator {
 
 		return solution;
 	}
-	public void generateTranslator(MessageFlow mf){
+	public Translator generateTranslator(MessageFlow mf){
 		ArrayList<String> defs = MappingFinder.getInstance().findMappingDef(mf.getSource().getOperation().getOutput(), mf.getSource().getOperation().getInput());
-		prl(defs);
+		Translator t = new Translator();
+		for (String def : defs){
+			prl("adding: "+def);
+			t.addMappingDef(def);
+		}
+		return t;
 	}
 }
