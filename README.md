@@ -10,8 +10,10 @@ Given these information, the software automatically finds behavior mismatch patt
 **Output**: the integration solution that addresses solution to message semantic and behaivor mismatches. Semantic translator is generated to execute ontology mappings from source ontology to target ontology. Enterprise Integration Pattern routers are generated to route messages to mediate the behavior mismatches.
 
 
-Test Cases
+Behavior Mismatch Mediation Test Cases
 ---------------
+
+When the collaborating systems differ in their message exchange behaviors, mediation is necessary.
 
 ###simpleLoop
 
