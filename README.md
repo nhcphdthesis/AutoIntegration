@@ -118,19 +118,19 @@ exclusive-receivers, multiple-senders, and sequenced-receivers.
 
 _Output_
 
-``Solution [channels=``
-``[Channel: channel [from=connector-Send Order Operation, to=auto-routingslip]``
-``, Channel: channel [from=auto-routingslip, to=connector-Receive Order]``
-``, Channel: channel [from=auto-routingslip, to=auto-splitter]``
-``, Channel: channel [from=auto-splitter, to=connector-Receive Order Item]``
-``, Channel: channel [from=connector-Send Response, to=auto-CBR]``
-``, Channel: channel [from=auto-CBR, to=connector-Receive Reject Operation]``
-``, Channel: channel [from=auto-CBR, to=connector-Receive Accept Operation]``
-``, Channel: channel [from=connector-Send Preliminary Report, to=auto-filter]``
-``, Channel: channel [from=auto-filter, to=auto-agg-multisender]``
-``, Channel: channel [from=auto-agg-multisender, to=connector-Receive Report Operation]``
-``, Channel: channel [from=connector-Send Supplement Report, to=auto-filter]``
-``]``
+    Solution [channels=``
+    [Channel: channel [from=connector-Send Order Operation, to=auto-routingslip]
+    , Channel: channel [from=auto-routingslip, to=connector-Receive Order]
+    , Channel: channel [from=auto-routingslip, to=auto-splitter]
+    , Channel: channel [from=auto-splitter, to=connector-Receive Order Item]
+    , Channel: channel [from=connector-Send Response, to=auto-CBR]
+    , Channel: channel [from=auto-CBR, to=connector-Receive Reject Operation]
+    , Channel: channel [from=auto-CBR, to=connector-Receive Accept Operation]
+    , Channel: channel [from=connector-Send Preliminary Report, to=auto-filter]
+    , Channel: channel [from=auto-filter, to=auto-agg-multisender]
+    , Channel: channel [from=auto-agg-multisender, to=connector-Receive Report Operation]
+    , Channel: channel [from=connector-Send Supplement Report, to=auto-filter]
+    ]
 
 Which means
 
