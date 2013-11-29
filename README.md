@@ -1,9 +1,9 @@
-AutoIntegration
+AutoIntegration: Twoards automatic integration solution design using model-driven collaboration and interface property specifications
 ===============
 
-Automatic design integration solutions
+This project aims to automatically design integration solutions given sufficient information about the general collaboration scenarios between systems, the interface properties (structure, message semantics, and message exchange behaviors), and correspondences between data concepts from different domain ontologies defined as ontology mappings.
 
-finds behavior mismatch patterns, generate routers, and composite integration solution.
+Given these information, the software automatically finds behavior mismatch patterns, generate routers, and composite integration solution.
 
 **Input**: the integration scenario modeled using BPMN collaboration diagram, the interface model describing information of actual interfaces including service-oriented operation and messages. The messages are semantically annotated using concepts from the domain ontology.
 
