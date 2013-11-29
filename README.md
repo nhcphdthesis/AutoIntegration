@@ -29,9 +29,9 @@ _Output_
 
 Which means:
 
-Flow 1: Client-request-connector -> aggregator -> Server-resequest-connector.
+__Flow 1__: Client-request-connector -> aggregator -> Server-resequest-connector.
 
-Flow 2: Server-response-connector -> splitter -> Client-response-connector.
+__Flow 2__: Server-response-connector -> splitter -> Client-response-connector.
 
 
 ###Simple Exclusive
@@ -40,11 +40,35 @@ one send task is connected to exclusive receive tasks. Should use CBR.
 
 ![SimpleExclusive](http://photo.yupoo.com/jjfd/Dlv9Kvwu/medish.jpg)
 
+_Output_
+
+Solution [channels=
+[Channel: channel [from=connector-DefaultOperation: send, to=auto-CBR]
+, Channel: channel [from=auto-CBR, to=connector-DefaultOperation: receive1]
+, Channel: channel [from=auto-CBR, to=connector-DefaultOperation: receive2]
+]
+
+Which means:
+
+__Flow 1__: inbound-endpoint-connector -> CBR -> two outbound-endpoint-connector.
+
 ###Single Sequence
 
 one send task is connected to two sequenced tasks. Should use RoutingSlip.
 
+![SingleSequence](/cases/SmpleSequence.png)
 
+_Output_
+
+[channels=
+[Channel: channel [from=connector-DefaultOperation: send, to=auto-routingslip]
+, Channel: channel [from=auto-routingslip, to=connector-DefaultOperation: receive1]
+, Channel: channel [from=auto-routingslip, to=connector-DefaultOperation: receive2]
+]
+
+Which means
+
+__Flow 1__: source-connecotr -> routing-slip(target1, target2) -> two target-connectors
 
 ### complex1
 
