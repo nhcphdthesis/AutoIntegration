@@ -56,7 +56,7 @@ __Flow 1__: inbound-endpoint-connector -> CBR -> two outbound-endpoint-connector
 
 one send task is connected to two sequenced tasks. Should use RoutingSlip.
 
-![SingleSequence](/cases/SmpleSequence.png)
+![SimpleSequence](/cases/SimpleSequence.png)
 
 _Output_
 
@@ -77,6 +77,27 @@ process1 has two send tasks. They are tangled with two receive tasks in process 
 order-mismatch, multiple-receivers, and multiple-senders
 
 ![Complex 1](http://photo.yupoo.com/jjfd/Dlv9LoBE/medish.jpg)
+
+_Output_
+
+[Channel: channel [from=connector-Send1, to=auto-recipientlist]
+, Channel: channel [from=auto-recipientlist, to=auto-filter]
+, Channel: channel [from=auto-filter, to=auto-agg-multisender]
+, Channel: channel [from=auto-agg-multisender, to=connector-Receive21]
+, Channel: channel [from=auto-recipientlist, to=connector-receiveE3]
+, Channel: channel [from=connector-Send2, to=auto-routingslip]
+, Channel: channel [from=auto-routingslip, to=auto-filter]
+, Channel: channel [from=auto-routingslip, to=connector-Receive22]
+]
+
+Which means:
+
+__Flow 1__ and __Flow 2__ are intermingled: 
+
+    send1-connector -> recipient-list -> p3-connector
+                                     |-> filter -> aggregator -> p2-receive-connector
+    send2-connector -> routing-slip -|
+                                     |-> receive2-connector  
 
 
 ### complex 2
