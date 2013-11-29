@@ -16,7 +16,7 @@ public class SolutionGenerator {
 	 */
 	public static void main(String[] args) {
 		
-		CollaborationModel cm = Scenario.createChoreography_case2();
+		CollaborationModel cm = Scenario.createChoreography_case();
 		SolutionGenerator gen = new SolutionGenerator();
 
 		prl(gen.generateSolution(cm));
