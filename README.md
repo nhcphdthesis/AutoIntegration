@@ -21,11 +21,11 @@ client exchange messages with server. One loop-sender pattern, one loop-receiver
 
 _Output_
 
-[Channel: channel [from=connector-DefaultOperation: client request, to=auto-agg-loopsender]
-, Channel: channel [from=auto-agg-loopsender, to=connector-DefaultOperation: server receive]
-, Channel: channel [from=connector-DefaultOperation: server response, to=auto-splitter]
-, Channel: channel [from=auto-splitter, to=connector-DefaultOperation: client receive]
-]
+    [Channel: channel [from=connector-DefaultOperation: client request, to=auto-agg-loopsender]
+    , Channel: channel [from=auto-agg-loopsender, to=connector-DefaultOperation: server receive]
+    , Channel: channel [from=connector-DefaultOperation: server response, to=auto-splitter]
+    , Channel: channel [from=auto-splitter, to=connector-DefaultOperation: client receive]
+    ]
 
 Which means:
 
@@ -42,11 +42,11 @@ one send task is connected to exclusive receive tasks. Should use CBR.
 
 _Output_
 
-Solution [channels=
-[Channel: channel [from=connector-DefaultOperation: send, to=auto-CBR]
-, Channel: channel [from=auto-CBR, to=connector-DefaultOperation: receive1]
-, Channel: channel [from=auto-CBR, to=connector-DefaultOperation: receive2]
-]
+    Solution [channels=
+    [Channel: channel [from=connector-DefaultOperation: send, to=auto-CBR]
+    , Channel: channel [from=auto-CBR, to=connector-DefaultOperation: receive1]
+    , Channel: channel [from=auto-CBR, to=connector-DefaultOperation: receive2]
+    ]
 
 Which means:
 
@@ -60,11 +60,11 @@ one send task is connected to two sequenced tasks. Should use RoutingSlip.
 
 _Output_
 
-[channels=
-[Channel: channel [from=connector-DefaultOperation: send, to=auto-routingslip]
-, Channel: channel [from=auto-routingslip, to=connector-DefaultOperation: receive1]
-, Channel: channel [from=auto-routingslip, to=connector-DefaultOperation: receive2]
-]
+    [channels=
+    [Channel: channel [from=connector-DefaultOperation: send, to=auto-routingslip]
+    , Channel: channel [from=auto-routingslip, to=connector-DefaultOperation: receive1]
+    , Channel: channel [from=auto-routingslip, to=connector-DefaultOperation: receive2]
+    ]
 
 Which means
 
@@ -80,15 +80,15 @@ order-mismatch, multiple-receivers, and multiple-senders
 
 _Output_
 
-[Channel: channel [from=connector-Send1, to=auto-recipientlist]
-, Channel: channel [from=auto-recipientlist, to=auto-filter]
-, Channel: channel [from=auto-filter, to=auto-agg-multisender]
-, Channel: channel [from=auto-agg-multisender, to=connector-Receive21]
-, Channel: channel [from=auto-recipientlist, to=connector-receiveE3]
-, Channel: channel [from=connector-Send2, to=auto-routingslip]
-, Channel: channel [from=auto-routingslip, to=auto-filter]
-, Channel: channel [from=auto-routingslip, to=connector-Receive22]
-]
+    [Channel: channel [from=connector-Send1, to=auto-recipientlist]
+    , Channel: channel [from=auto-recipientlist, to=auto-filter]
+    , Channel: channel [from=auto-filter, to=auto-agg-multisender]
+    , Channel: channel [from=auto-agg-multisender, to=connector-Receive21]
+    , Channel: channel [from=auto-recipientlist, to=connector-receiveE3]
+    , Channel: channel [from=connector-Send2, to=auto-routingslip]
+    , Channel: channel [from=auto-routingslip, to=auto-filter]
+    , Channel: channel [from=auto-routingslip, to=connector-Receive22]
+    ]
 
 Which means:
 
@@ -115,6 +115,26 @@ CIS and RIS. CIS use two seperate tasks to receive response (accept vs. reject).
 exclusive-receivers, multiple-senders, and sequenced-receivers.
 
 ![Case 1](http://photo.yupoo.com/jjfd/Dlv9KvKu/medish.jpg)
+
+_Output_
+
+``Solution [channels=``
+``[Channel: channel [from=connector-Send Order Operation, to=auto-routingslip]``
+``, Channel: channel [from=auto-routingslip, to=connector-Receive Order]``
+``, Channel: channel [from=auto-routingslip, to=auto-splitter]``
+``, Channel: channel [from=auto-splitter, to=connector-Receive Order Item]``
+``, Channel: channel [from=connector-Send Response, to=auto-CBR]``
+``, Channel: channel [from=auto-CBR, to=connector-Receive Reject Operation]``
+``, Channel: channel [from=auto-CBR, to=connector-Receive Accept Operation]``
+``, Channel: channel [from=connector-Send Preliminary Report, to=auto-filter]``
+``, Channel: channel [from=auto-filter, to=auto-agg-multisender]``
+``, Channel: channel [from=auto-agg-multisender, to=connector-Receive Report Operation]``
+``, Channel: channel [from=connector-Send Supplement Report, to=auto-filter]``
+``]``
+
+Which means
+
+![mediation](/cases/Case 1-Mediation.png)
 
 ### case 2
 
