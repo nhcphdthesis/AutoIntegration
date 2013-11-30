@@ -9,6 +9,32 @@ Given these information, the software automatically finds behavior mismatch patt
 
 **Output**: the integration solution that addresses solution to message semantic and behaivor mismatches. Semantic translator is generated to execute ontology mappings from source ontology to target ontology. Enterprise Integration Pattern routers are generated to route messages to mediate the behavior mismatches.
 
+Data Semantics Mediation
+-------------------------
+
+Understanding the semantics of exchanged messages is a challenge to the computer. I use ontologies to define the information models within certain domains. The association between ontologies and message elements is achieved by semantic annotation.
+
+Firstly, each message object in the interface model has a `semanticRef` attribute to refer to a clearly defined message ontology. The relations of elements and the overall message is explicated by the message ontology.
+
+Secondly, each message object refers to a series of _SemanticAnnotation_ objects using the `annotations` property. A SemanticAnnotation object associates an element in the message schema to a concept in an ontology. This annotation explicates the meaning of a certain data element, while the relations between elements are defined within the ontology. 
+
+for example: A semanticAnnotation looks like
+
+    dataElementRef = "/orderInfro/patientName"
+    conceptRef = "www.nhc.org/ontologies/HL7Ontology.owl#PatientName"
+
+This annotation associates information conainted in the `patientName` element to the domain concept `PatientName`.
+
+During generation of integration solution, the computer examines the two message objects of the two operations connected by a message flow in BPMN collaboration model.
+
+1. for each concept referenced by the annotations of the target message, find if there is corresponding concept in the annotations of the source message. If these exists, this element has semantically equivalent counterparts in the source message, no matter what it is named.
+2. If there does not exact concept in the source message, the computer loads ontology mappings defined in the knowledge base, and find equivalent (or sub, super, intersection, etc.) concepts for the specific concept defined in these mappings. This step derives a set of corresponding concepts.
+3. Use the set to check if any of these concepts are referenced in the annotations of the source message. If there is, then the required cocnept in the target message does have counterparts in the source message, in the guarantee of existance of ontology mapping.
+4. The computer generates a semantic translator for this message flow. The `mappingDefs` property of this translator references a list of mappings that are suitable to translate concepts (those we found before) in the source ontology (containing concepts referenced by the source message) to concepts in the target ontology (which contains concepts referenced by the target message).
+5. The semantic translator is connected to the inbound-endpoint-connector of the message flow, and before all routers.
+6. If the found corresponding concepts are not at all referenced by the source message annotation, probably user intervention is necessary to define new ontology mapping or new annotation.
+
+In this project, the ontology definitions and mappings are stored in the Knowledge Base using Jena TDB.
 
 Behavior Mismatch Mediation Test Cases
 ---------------
