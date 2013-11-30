@@ -15,4 +15,10 @@ public class SemanticAnnotation {
 	public void setConceptRef(String conceptRef) {
 		this.conceptRef = conceptRef;
 	}
+	public SemanticAnnotation(String dataElementRef, String conceptRef) {
+		super();
+		this.dataElementRef = dataElementRef!=null?dataElementRef:"";
+		this.conceptRef = conceptRef!=null?conceptRef:"";
+	}
+	
 }

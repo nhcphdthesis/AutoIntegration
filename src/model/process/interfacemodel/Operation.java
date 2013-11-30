@@ -4,6 +4,13 @@ public class Operation {
  InterfaceModel interfce;
  String name;
  Message input;
+ 
+ public Operation(){
+	 name = "";
+	 input = new Message();
+	 output = new Message();
+ }
+ 
  public Message getInput() {
 	return input;
 }

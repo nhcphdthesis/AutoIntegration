@@ -1,0 +1,248 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY HL7Ontology "http://nhc.org/ontologies/HL7Ontology.owl#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY ReportInstance "http://nhc.org/ontologies/ReportInstance.owl#" >
+]>
+
+
+<rdf:RDF xmlns="http://www.w3.org/2002/07/owl#"
+     xml:base="http://www.w3.org/2002/07/owl"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:ReportInstance="http://nhc.org/ontologies/ReportInstance.owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:HL7Ontology="http://nhc.org/ontologies/HL7Ontology.owl#">
+    <Ontology rdf:about="http://nhc.org/ontologies/ReportInstance.owl">
+        <imports rdf:resource="http://nhc.org/ontologies/HL7Ontology.owl"/>
+    </Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Datatypes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://nhc.org/ontologies/HL7Ontology.owl#CE.1 -->
+
+    <ObjectProperty rdf:about="&HL7Ontology;CE.1"/>
+    
+
+
+    <!-- http://nhc.org/ontologies/HL7Ontology.owl#OBR -->
+
+    <ObjectProperty rdf:about="&HL7Ontology;OBR"/>
+    
+
+
+    <!-- http://nhc.org/ontologies/HL7Ontology.owl#OBX -->
+
+    <ObjectProperty rdf:about="&HL7Ontology;OBX"/>
+    
+
+
+    <!-- http://nhc.org/ontologies/HL7Ontology.owl#OBX.3 -->
+
+    <ObjectProperty rdf:about="&HL7Ontology;OBX.3"/>
+    
+
+
+    <!-- http://nhc.org/ontologies/HL7Ontology.owl#OBX.5 -->
+
+    <ObjectProperty rdf:about="&HL7Ontology;OBX.5"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://nhc.org/ontologies/HL7Ontology.owl#hasContent -->
+
+    <DatatypeProperty rdf:about="&HL7Ontology;hasContent"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://nhc.org/ontologies/HL7Ontology.owl#CE.1.CONTENT -->
+
+    <Class rdf:about="&HL7Ontology;CE.1.CONTENT"/>
+    
+
+
+    <!-- http://nhc.org/ontologies/HL7Ontology.owl#OBR.CONTENT -->
+
+    <Class rdf:about="&HL7Ontology;OBR.CONTENT"/>
+    
+
+
+    <!-- http://nhc.org/ontologies/HL7Ontology.owl#OBX.3.CONTENT -->
+
+    <Class rdf:about="&HL7Ontology;OBX.3.CONTENT"/>
+    
+
+
+    <!-- http://nhc.org/ontologies/HL7Ontology.owl#OBX.5.CONTENT -->
+
+    <Class rdf:about="&HL7Ontology;OBX.5.CONTENT"/>
+    
+
+
+    <!-- http://nhc.org/ontologies/HL7Ontology.owl#OBX.CONTENT -->
+
+    <Class rdf:about="&HL7Ontology;OBX.CONTENT"/>
+    
+
+
+    <!-- http://nhc.org/ontologies/HL7Ontology.owl#ORU_R01.CONTENT -->
+
+    <Class rdf:about="&HL7Ontology;ORU_R01.CONTENT"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://nhc.org/ontologies/ReportInstance.owl#OBX1 -->
+
+    <NamedIndividual rdf:about="&ReportInstance;OBX1">
+        <rdf:type rdf:resource="&HL7Ontology;OBX.CONTENT"/>
+        <HL7Ontology:OBX.3 rdf:resource="&ReportInstance;OBX1.Type"/>
+        <HL7Ontology:OBX.5 rdf:resource="&ReportInstance;TestOBX5.IMP"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://nhc.org/ontologies/ReportInstance.owl#OBX1.Type -->
+
+    <NamedIndividual rdf:about="&ReportInstance;OBX1.Type">
+        <rdf:type rdf:resource="&HL7Ontology;OBX.3.CONTENT"/>
+        <HL7Ontology:CE.1 rdf:resource="&ReportInstance;OBX1.Type.IMP"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://nhc.org/ontologies/ReportInstance.owl#OBX1.Type.IMP -->
+
+    <NamedIndividual rdf:about="&ReportInstance;OBX1.Type.IMP">
+        <rdf:type rdf:resource="&HL7Ontology;CE.1.CONTENT"/>
+        <HL7Ontology:hasContent>&amp;IMP</HL7Ontology:hasContent>
+    </NamedIndividual>
+    
+
+
+    <!-- http://nhc.org/ontologies/ReportInstance.owl#OBX2 -->
+
+    <NamedIndividual rdf:about="&ReportInstance;OBX2">
+        <rdf:type rdf:resource="&HL7Ontology;OBX.CONTENT"/>
+        <HL7Ontology:OBX.3 rdf:resource="&ReportInstance;OBX2.Type"/>
+        <HL7Ontology:OBX.5 rdf:resource="&ReportInstance;TestOBX5.REC"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://nhc.org/ontologies/ReportInstance.owl#OBX2.Type -->
+
+    <NamedIndividual rdf:about="&ReportInstance;OBX2.Type">
+        <rdf:type rdf:resource="&HL7Ontology;OBX.3.CONTENT"/>
+        <HL7Ontology:CE.1 rdf:resource="&ReportInstance;OBX2.Type.REC"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://nhc.org/ontologies/ReportInstance.owl#OBX2.Type.REC -->
+
+    <NamedIndividual rdf:about="&ReportInstance;OBX2.Type.REC">
+        <rdf:type rdf:resource="&HL7Ontology;CE.1.CONTENT"/>
+        <HL7Ontology:hasContent>&amp;REC</HL7Ontology:hasContent>
+    </NamedIndividual>
+    
+
+
+    <!-- http://nhc.org/ontologies/ReportInstance.owl#TestOBR -->
+
+    <NamedIndividual rdf:about="&ReportInstance;TestOBR">
+        <rdf:type rdf:resource="&HL7Ontology;OBR.CONTENT"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://nhc.org/ontologies/ReportInstance.owl#TestOBX5.IMP -->
+
+    <NamedIndividual rdf:about="&ReportInstance;TestOBX5.IMP">
+        <rdf:type rdf:resource="&HL7Ontology;OBX.5.CONTENT"/>
+        <HL7Ontology:hasContent>Test impression</HL7Ontology:hasContent>
+    </NamedIndividual>
+    
+
+
+    <!-- http://nhc.org/ontologies/ReportInstance.owl#TestOBX5.REC -->
+
+    <NamedIndividual rdf:about="&ReportInstance;TestOBX5.REC">
+        <rdf:type rdf:resource="&HL7Ontology;OBX.5.CONTENT"/>
+        <HL7Ontology:hasContent>Test Diagnosis</HL7Ontology:hasContent>
+    </NamedIndividual>
+    
+
+
+    <!-- http://nhc.org/ontologies/ReportInstance.owl#TestORU -->
+
+    <NamedIndividual rdf:about="&ReportInstance;TestORU">
+        <rdf:type rdf:resource="&HL7Ontology;ORU_R01.CONTENT"/>
+        <HL7Ontology:OBX rdf:resource="&ReportInstance;OBX1"/>
+        <HL7Ontology:OBX rdf:resource="&ReportInstance;OBX2"/>
+        <HL7Ontology:OBR rdf:resource="&ReportInstance;TestOBR"/>
+    </NamedIndividual>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.2.3.1824) http://owlapi.sourceforge.net -->
+

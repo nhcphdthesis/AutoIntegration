@@ -1,0 +1,343 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY swrl "http://www.w3.org/2003/11/swrl#" >
+    <!ENTITY swrlb "http://www.w3.org/2003/11/swrlb#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY HL7Ontology "http://nhc.org/ontologies/HL7Ontology.owl#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY LocalOntology "http://nhc.org/ontologies/LocalOntology.owl#" >
+]>
+
+
+<rdf:RDF xmlns="http://www.w3.org/2002/07/owl#"
+     xml:base="http://www.w3.org/2002/07/owl"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:HL7Ontology="http://nhc.org/ontologies/HL7Ontology.owl#"
+     xmlns:LocalOntology="http://nhc.org/ontologies/LocalOntology.owl#">
+    <Ontology rdf:about="http://nhc.org/ontologies/ReportMapping.owl">
+        <imports rdf:resource="http://nhc.org/ontologies/HL7Ontology.owl"/>
+        <imports rdf:resource="http://nhc.org/ontologies/LocalOntology.owl"/>
+    </Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Datatypes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://nhc.org/ontologies/HL7Ontology.owl#OBX -->
+
+    <rdf:Description rdf:about="&HL7Ontology;OBX">
+        <equivalentProperty rdf:resource="&LocalOntology;hasObservation"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://nhc.org/ontologies/HL7Ontology.owl#OBX.5 -->
+
+    <rdf:Description rdf:about="&HL7Ontology;OBX.5">
+        <equivalentProperty rdf:resource="&LocalOntology;hasObservationContent"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://nhc.org/ontologies/LocalOntology.owl#hasObservation -->
+
+    <rdf:Description rdf:about="&LocalOntology;hasObservation"/>
+    
+
+
+    <!-- http://nhc.org/ontologies/LocalOntology.owl#hasObservationContent -->
+
+    <rdf:Description rdf:about="&LocalOntology;hasObservationContent"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://nhc.org/ontologies/HL7Ontology.owl#OBX.5.CONTENT -->
+
+    <rdf:Description rdf:about="&HL7Ontology;OBX.5.CONTENT">
+        <equivalentClass rdf:resource="&LocalOntology;ObservationContent"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://nhc.org/ontologies/HL7Ontology.owl#OBX.CONTENT -->
+
+    <rdf:Description rdf:about="&HL7Ontology;OBX.CONTENT">
+        <equivalentClass rdf:resource="&LocalOntology;StudyObservation"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://nhc.org/ontologies/HL7Ontology.owl#ORU_R01.CONTENT -->
+
+    <rdf:Description rdf:about="&HL7Ontology;ORU_R01.CONTENT">
+        <equivalentClass rdf:resource="&LocalOntology;ReportMessage"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://nhc.org/ontologies/LocalOntology.owl#ExamDiagnosis -->
+
+    <rdf:Description rdf:about="&LocalOntology;ExamDiagnosis">
+        <equivalentClass>
+            <Class>
+                <intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&HL7Ontology;OBX.CONTENT"/>
+                    <Restriction>
+                        <onProperty rdf:resource="&HL7Ontology;OBX.3"/>
+                        <someValuesFrom>
+                            <Class>
+                                <intersectionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="&HL7Ontology;OBX.3.CONTENT"/>
+                                    <Restriction>
+                                        <onProperty rdf:resource="&HL7Ontology;CE.1"/>
+                                        <someValuesFrom>
+                                            <Restriction>
+                                                <onProperty rdf:resource="&HL7Ontology;hasContent"/>
+                                                <hasValue>&amp;REC</hasValue>
+                                            </Restriction>
+                                        </someValuesFrom>
+                                    </Restriction>
+                                </intersectionOf>
+                            </Class>
+                        </someValuesFrom>
+                    </Restriction>
+                </intersectionOf>
+            </Class>
+        </equivalentClass>
+    </rdf:Description>
+    
+
+
+    <!-- http://nhc.org/ontologies/LocalOntology.owl#ExamView -->
+
+    <rdf:Description rdf:about="&LocalOntology;ExamView">
+        <equivalentClass>
+            <Class>
+                <intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&HL7Ontology;OBX.CONTENT"/>
+                    <Restriction>
+                        <onProperty rdf:resource="&HL7Ontology;OBX.3"/>
+                        <someValuesFrom>
+                            <Class>
+                                <intersectionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="&HL7Ontology;OBX.3.CONTENT"/>
+                                    <Restriction>
+                                        <onProperty rdf:resource="&HL7Ontology;CE.1"/>
+                                        <someValuesFrom>
+                                            <Restriction>
+                                                <onProperty rdf:resource="&HL7Ontology;hasContent"/>
+                                                <hasValue>&amp;IMP</hasValue>
+                                            </Restriction>
+                                        </someValuesFrom>
+                                    </Restriction>
+                                </intersectionOf>
+                            </Class>
+                        </someValuesFrom>
+                    </Restriction>
+                </intersectionOf>
+            </Class>
+        </equivalentClass>
+    </rdf:Description>
+    
+
+
+    <!-- http://nhc.org/ontologies/LocalOntology.owl#ObservationContent -->
+
+    <rdf:Description rdf:about="&LocalOntology;ObservationContent"/>
+    
+
+
+    <!-- http://nhc.org/ontologies/LocalOntology.owl#ReportMessage -->
+
+    <rdf:Description rdf:about="&LocalOntology;ReportMessage"/>
+    
+
+
+    <!-- http://nhc.org/ontologies/LocalOntology.owl#StudyObservation -->
+
+    <rdf:Description rdf:about="&LocalOntology;StudyObservation"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Rules
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <swrl:Variable rdf:about="urn:swrl#y"/>
+    <swrl:Variable rdf:about="urn:swrl#x"/>
+    <swrl:Imp>
+        <swrl:body>
+            <swrl:AtomList>
+                <rdf:first>
+                    <swrl:ClassAtom>
+                        <swrl:classPredicate rdf:resource="&LocalOntology;ExamDiagnosis"/>
+                        <swrl:argument1 rdf:resource="urn:swrl#y"/>
+                    </swrl:ClassAtom>
+                </rdf:first>
+                <rdf:rest>
+                    <swrl:AtomList>
+                        <rdf:rest>
+                            <swrl:AtomList>
+                                <rdf:rest rdf:resource="&rdf;nil"/>
+                                <rdf:first>
+                                    <swrl:IndividualPropertyAtom>
+                                        <swrl:propertyPredicate rdf:resource="&LocalOntology;hasObservation"/>
+                                        <swrl:argument1 rdf:resource="urn:swrl#x"/>
+                                        <swrl:argument2 rdf:resource="urn:swrl#y"/>
+                                    </swrl:IndividualPropertyAtom>
+                                </rdf:first>
+                            </swrl:AtomList>
+                        </rdf:rest>
+                        <rdf:first>
+                            <swrl:ClassAtom>
+                                <swrl:classPredicate rdf:resource="&LocalOntology;ReportMessage"/>
+                                <swrl:argument1 rdf:resource="urn:swrl#x"/>
+                            </swrl:ClassAtom>
+                        </rdf:first>
+                    </swrl:AtomList>
+                </rdf:rest>
+            </swrl:AtomList>
+        </swrl:body>
+        <swrl:head>
+            <swrl:AtomList>
+                <rdf:rest rdf:resource="&rdf;nil"/>
+                <rdf:first>
+                    <swrl:IndividualPropertyAtom>
+                        <swrl:propertyPredicate rdf:resource="&LocalOntology;hasDiagnosis"/>
+                        <swrl:argument1 rdf:resource="urn:swrl#x"/>
+                        <swrl:argument2 rdf:resource="urn:swrl#y"/>
+                    </swrl:IndividualPropertyAtom>
+                </rdf:first>
+            </swrl:AtomList>
+        </swrl:head>
+    </swrl:Imp>
+    <swrl:Imp>
+        <swrl:head>
+            <swrl:AtomList>
+                <rdf:rest rdf:resource="&rdf;nil"/>
+                <rdf:first>
+                    <swrl:IndividualPropertyAtom>
+                        <swrl:propertyPredicate rdf:resource="&LocalOntology;hasView"/>
+                        <swrl:argument1 rdf:resource="urn:swrl#x"/>
+                        <swrl:argument2 rdf:resource="urn:swrl#y"/>
+                    </swrl:IndividualPropertyAtom>
+                </rdf:first>
+            </swrl:AtomList>
+        </swrl:head>
+        <swrl:body>
+            <swrl:AtomList>
+                <rdf:first>
+                    <swrl:ClassAtom>
+                        <swrl:classPredicate rdf:resource="&LocalOntology;ExamView"/>
+                        <swrl:argument1 rdf:resource="urn:swrl#y"/>
+                    </swrl:ClassAtom>
+                </rdf:first>
+                <rdf:rest>
+                    <swrl:AtomList>
+                        <rdf:first>
+                            <swrl:ClassAtom>
+                                <swrl:classPredicate rdf:resource="&LocalOntology;ReportMessage"/>
+                                <swrl:argument1 rdf:resource="urn:swrl#x"/>
+                            </swrl:ClassAtom>
+                        </rdf:first>
+                        <rdf:rest>
+                            <swrl:AtomList>
+                                <rdf:rest rdf:resource="&rdf;nil"/>
+                                <rdf:first>
+                                    <swrl:IndividualPropertyAtom>
+                                        <swrl:propertyPredicate rdf:resource="&LocalOntology;hasObservation"/>
+                                        <swrl:argument1 rdf:resource="urn:swrl#x"/>
+                                        <swrl:argument2 rdf:resource="urn:swrl#y"/>
+                                    </swrl:IndividualPropertyAtom>
+                                </rdf:first>
+                            </swrl:AtomList>
+                        </rdf:rest>
+                    </swrl:AtomList>
+                </rdf:rest>
+            </swrl:AtomList>
+        </swrl:body>
+    </swrl:Imp>
+    <swrl:Imp>
+        <swrl:head>
+            <swrl:AtomList>
+                <rdf:rest rdf:resource="&rdf;nil"/>
+                <rdf:first>
+                    <swrl:DatavaluedPropertyAtom>
+                        <swrl:propertyPredicate rdf:resource="&LocalOntology;hasContentValue"/>
+                        <swrl:argument1 rdf:resource="urn:swrl#x"/>
+                        <swrl:argument2 rdf:resource="urn:swrl#y"/>
+                    </swrl:DatavaluedPropertyAtom>
+                </rdf:first>
+            </swrl:AtomList>
+        </swrl:head>
+        <swrl:body>
+            <swrl:AtomList>
+                <rdf:rest>
+                    <swrl:AtomList>
+                        <rdf:rest rdf:resource="&rdf;nil"/>
+                        <rdf:first>
+                            <swrl:DatavaluedPropertyAtom>
+                                <swrl:propertyPredicate rdf:resource="&HL7Ontology;hasContent"/>
+                                <swrl:argument1 rdf:resource="urn:swrl#x"/>
+                                <swrl:argument2 rdf:resource="urn:swrl#y"/>
+                            </swrl:DatavaluedPropertyAtom>
+                        </rdf:first>
+                    </swrl:AtomList>
+                </rdf:rest>
+                <rdf:first>
+                    <swrl:ClassAtom>
+                        <swrl:classPredicate rdf:resource="&LocalOntology;ObservationContent"/>
+                        <swrl:argument1 rdf:resource="urn:swrl#x"/>
+                    </swrl:ClassAtom>
+                </rdf:first>
+            </swrl:AtomList>
+        </swrl:body>
+    </swrl:Imp>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.2.3.1824) http://owlapi.sourceforge.net -->
+

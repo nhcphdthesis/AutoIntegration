@@ -1,0 +1,962 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY HL7Ontology "http://nhc.org/ontologies/HL7Ontology.owl#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+]>
+
+
+<rdf:RDF xmlns="http://www.w3.org/2002/07/owl#"
+     xml:base="http://www.w3.org/2002/07/owl"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:HL7Ontology="http://nhc.org/ontologies/HL7Ontology.owl#">
+    <Ontology rdf:about="http://nhc.org/ontologies/HL7Ontology.owl"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Datatypes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://nhc.org/ontologies/HL7Ontology.owl#CE.1 -->
+
+    <ObjectProperty rdf:about="&HL7Ontology;CE.1">
+        <rdfs:comment>IDENTIFIER</rdfs:comment>
+        <rdfs:domain rdf:resource="&HL7Ontology;CE"/>
+        <rdfs:range rdf:resource="&HL7Ontology;CE.1.CONTENT"/>
+        <rdfs:subPropertyOf rdf:resource="&HL7Ontology;ComplexDataTypeComponent"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://nhc.org/ontologies/HL7Ontology.owl#CE.2 -->
+
+    <ObjectProperty rdf:about="&HL7Ontology;CE.2">
+        <rdfs:comment>TEXT</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="&HL7Ontology;ComplexDataTypeComponent"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://nhc.org/ontologies/HL7Ontology.owl#CE.3 -->
+
+    <ObjectProperty rdf:about="&HL7Ontology;CE.3">
+        <rdfs:comment>name of coding system</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="&HL7Ontology;ComplexDataTypeComponent"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://nhc.org/ontologies/HL7Ontology.owl#CX.3 -->
+
+    <ObjectProperty rdf:about="&HL7Ontology;CX.3">
+        <rdfs:domain rdf:resource="&HL7Ontology;CX"/>
+        <rdfs:range rdf:resource="&HL7Ontology;CX.3.CONTENT"/>
+        <rdfs:subPropertyOf rdf:resource="&HL7Ontology;ComplexDataTypeComponent"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://nhc.org/ontologies/HL7Ontology.owl#ComplexDataTypeComponent -->
+
+    <ObjectProperty rdf:about="&HL7Ontology;ComplexDataTypeComponent">
+        <rdfs:domain rdf:resource="&HL7Ontology;ComplexDataType"/>
+        <rdfs:range rdf:resource="&HL7Ontology;DataType"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://nhc.org/ontologies/HL7Ontology.owl#EI.2 -->
+
+    <ObjectProperty rdf:about="&HL7Ontology;EI.2">
+        <rdfs:subPropertyOf rdf:resource="&HL7Ontology;ComplexDataTypeComponent"/>
+        <rdfs:domain rdf:resource="&HL7Ontology;EI"/>
+        <rdfs:range rdf:resource="&HL7Ontology;EI.2.CONTENT"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://nhc.org/ontologies/HL7Ontology.owl#MessageSegment -->
+
+    <ObjectProperty rdf:about="&HL7Ontology;MessageSegment">
+        <rdfs:domain rdf:resource="&HL7Ontology;MessageType"/>
+        <rdfs:range rdf:resource="&HL7Ontology;Segment"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://nhc.org/ontologies/HL7Ontology.owl#NDL.1 -->
+
+    <ObjectProperty rdf:about="&HL7Ontology;NDL.1">
+        <rdfs:subPropertyOf rdf:resource="&HL7Ontology;ComplexDataTypeComponent"/>
+        <rdfs:domain rdf:resource="&HL7Ontology;NDL"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://nhc.org/ontologies/HL7Ontology.owl#OBR -->
+
+    <ObjectProperty rdf:about="&HL7Ontology;OBR">
+        <rdfs:subPropertyOf rdf:resource="&HL7Ontology;MessageSegment"/>
+        <rdfs:range rdf:resource="&HL7Ontology;OBR.CONTENT"/>
+        <rdfs:domain rdf:resource="&HL7Ontology;ORU_R01.CONTENT"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://nhc.org/ontologies/HL7Ontology.owl#OBR.1 -->
+
+    <ObjectProperty rdf:about="&HL7Ontology;OBR.1">
+        <rdfs:range rdf:resource="&HL7Ontology;OBR.1.CONTENT"/>
+        <rdfs:domain rdf:resource="&HL7Ontology;OBR.CONTENT"/>
+        <rdfs:subPropertyOf rdf:resource="&HL7Ontology;SegmentField"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://nhc.org/ontologies/HL7Ontology.owl#OBR.2 -->
+
+    <ObjectProperty rdf:about="&HL7Ontology;OBR.2">
+        <rdfs:range rdf:resource="&HL7Ontology;OBR.2.CONTENT"/>
+        <rdfs:domain rdf:resource="&HL7Ontology;OBR.CONTENT"/>
+        <rdfs:subPropertyOf rdf:resource="&HL7Ontology;SegmentField"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://nhc.org/ontologies/HL7Ontology.owl#OBR.25 -->
+
+    <ObjectProperty rdf:about="&HL7Ontology;OBR.25">
+        <rdfs:range rdf:resource="&HL7Ontology;OBR.25.CONTENT"/>
+        <rdfs:domain rdf:resource="&HL7Ontology;OBR.CONTENT"/>
+        <rdfs:subPropertyOf rdf:resource="&HL7Ontology;SegmentField"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://nhc.org/ontologies/HL7Ontology.owl#OBR.3 -->
+
+    <ObjectProperty rdf:about="&HL7Ontology;OBR.3">
+        <rdfs:range rdf:resource="&HL7Ontology;OBR.3.CONTENT"/>
+        <rdfs:domain rdf:resource="&HL7Ontology;OBR.CONTENT"/>
+        <rdfs:subPropertyOf rdf:resource="&HL7Ontology;SegmentField"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://nhc.org/ontologies/HL7Ontology.owl#OBR.32 -->
+
+    <ObjectProperty rdf:about="&HL7Ontology;OBR.32">
+        <rdfs:comment>Principal Result Interpreter +</rdfs:comment>
+        <rdfs:range rdf:resource="&HL7Ontology;OBR.32.CONTENT"/>
+        <rdfs:domain rdf:resource="&HL7Ontology;OBR.CONTENT"/>
+        <rdfs:subPropertyOf rdf:resource="&HL7Ontology;SegmentField"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://nhc.org/ontologies/HL7Ontology.owl#OBR.4 -->
+
+    <ObjectProperty rdf:about="&HL7Ontology;OBR.4">
+        <rdfs:comment>Universal Service ID</rdfs:comment>
+        <rdfs:range rdf:resource="&HL7Ontology;OBR.4.CONTENT"/>
+        <rdfs:domain rdf:resource="&HL7Ontology;OBR.CONTENT"/>
+        <rdfs:subPropertyOf rdf:resource="&HL7Ontology;SegmentField"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://nhc.org/ontologies/HL7Ontology.owl#OBR.7 -->
+
+    <ObjectProperty rdf:about="&HL7Ontology;OBR.7">
+        <rdfs:comment>Observation Date/Time</rdfs:comment>
+        <rdfs:range rdf:resource="&HL7Ontology;OBR.7.CONTENT"/>
+        <rdfs:domain rdf:resource="&HL7Ontology;OBR.CONTENT"/>
+        <rdfs:subPropertyOf rdf:resource="&HL7Ontology;SegmentField"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://nhc.org/ontologies/HL7Ontology.owl#OBX -->
+
+    <ObjectProperty rdf:about="&HL7Ontology;OBX">
+        <rdfs:subPropertyOf rdf:resource="&HL7Ontology;MessageSegment"/>
+        <rdfs:range rdf:resource="&HL7Ontology;OBX.CONTENT"/>
+        <rdfs:domain rdf:resource="&HL7Ontology;ORU_R01.CONTENT"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://nhc.org/ontologies/HL7Ontology.owl#OBX.1 -->
+
+    <ObjectProperty rdf:about="&HL7Ontology;OBX.1">
+        <rdfs:range rdf:resource="&HL7Ontology;OBX.1.CONTENT"/>
+        <rdfs:domain rdf:resource="&HL7Ontology;OBX.CONTENT"/>
+        <rdfs:subPropertyOf rdf:resource="&HL7Ontology;SegmentField"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://nhc.org/ontologies/HL7Ontology.owl#OBX.2 -->
+
+    <ObjectProperty rdf:about="&HL7Ontology;OBX.2">
+        <rdfs:comment>Value Type</rdfs:comment>
+        <rdfs:range rdf:resource="&HL7Ontology;OBX.2.CONTENT"/>
+        <rdfs:domain rdf:resource="&HL7Ontology;OBX.CONTENT"/>
+        <rdfs:subPropertyOf rdf:resource="&HL7Ontology;SegmentField"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://nhc.org/ontologies/HL7Ontology.owl#OBX.3 -->
+
+    <ObjectProperty rdf:about="&HL7Ontology;OBX.3">
+        <rdfs:comment>Observation Identifier</rdfs:comment>
+        <rdfs:range rdf:resource="&HL7Ontology;OBX.3.CONTENT"/>
+        <rdfs:domain rdf:resource="&HL7Ontology;OBX.CONTENT"/>
+        <rdfs:subPropertyOf rdf:resource="&HL7Ontology;SegmentField"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://nhc.org/ontologies/HL7Ontology.owl#OBX.4 -->
+
+    <ObjectProperty rdf:about="&HL7Ontology;OBX.4">
+        <rdfs:comment>Observation Sub-ID</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="&HL7Ontology;SegmentField"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://nhc.org/ontologies/HL7Ontology.owl#OBX.5 -->
+
+    <ObjectProperty rdf:about="&HL7Ontology;OBX.5">
+        <rdfs:comment>Observation Value</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="&HL7Ontology;SegmentField"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://nhc.org/ontologies/HL7Ontology.owl#ORC.1 -->
+
+    <ObjectProperty rdf:about="&HL7Ontology;ORC.1">
+        <rdfs:range rdf:resource="&HL7Ontology;ORC.1.CONTENT"/>
+        <rdfs:domain rdf:resource="&HL7Ontology;ORC.CONTENT"/>
+        <rdfs:subPropertyOf rdf:resource="&HL7Ontology;SegmentField"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://nhc.org/ontologies/HL7Ontology.owl#ORC.16 -->
+
+    <ObjectProperty rdf:about="&HL7Ontology;ORC.16">
+        <rdfs:comment>Order Control Code Reason</rdfs:comment>
+        <rdfs:range rdf:resource="&HL7Ontology;ORC.16.CONTENT"/>
+        <rdfs:domain rdf:resource="&HL7Ontology;ORC.CONTENT"/>
+        <rdfs:subPropertyOf rdf:resource="&HL7Ontology;SegmentField"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://nhc.org/ontologies/HL7Ontology.owl#ORC.2 -->
+
+    <ObjectProperty rdf:about="&HL7Ontology;ORC.2">
+        <rdfs:comment>Placer Order Number</rdfs:comment>
+        <rdfs:range rdf:resource="&HL7Ontology;ORC.2.CONTENT"/>
+        <rdfs:domain rdf:resource="&HL7Ontology;ORC.CONTENT"/>
+        <rdfs:subPropertyOf rdf:resource="&HL7Ontology;SegmentField"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://nhc.org/ontologies/HL7Ontology.owl#ORC.9 -->
+
+    <ObjectProperty rdf:about="&HL7Ontology;ORC.9">
+        <rdfs:comment>Date/Time of Transaction</rdfs:comment>
+        <rdfs:range rdf:resource="&HL7Ontology;ORC.9.CONTENT"/>
+        <rdfs:domain rdf:resource="&HL7Ontology;ORC.CONTENT"/>
+        <rdfs:subPropertyOf rdf:resource="&HL7Ontology;SegmentField"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://nhc.org/ontologies/HL7Ontology.owl#PID -->
+
+    <ObjectProperty rdf:about="&HL7Ontology;PID">
+        <rdfs:subPropertyOf rdf:resource="&HL7Ontology;MessageSegment"/>
+        <rdfs:domain rdf:resource="&HL7Ontology;ORU_R01.CONTENT"/>
+        <rdfs:range rdf:resource="&HL7Ontology;PID.CONTENT"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://nhc.org/ontologies/HL7Ontology.owl#PID.1 -->
+
+    <ObjectProperty rdf:about="&HL7Ontology;PID.1">
+        <rdfs:range rdf:resource="&HL7Ontology;PID.1.CONTENT"/>
+        <rdfs:domain rdf:resource="&HL7Ontology;PID.CONTENT"/>
+        <rdfs:subPropertyOf rdf:resource="&HL7Ontology;SegmentField"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://nhc.org/ontologies/HL7Ontology.owl#PID.3 -->
+
+    <ObjectProperty rdf:about="&HL7Ontology;PID.3">
+        <rdfs:comment>Patient Identifier List</rdfs:comment>
+        <rdfs:range rdf:resource="&HL7Ontology;PID.3.CONTENT"/>
+        <rdfs:domain rdf:resource="&HL7Ontology;PID.CONTENT"/>
+        <rdfs:subPropertyOf rdf:resource="&HL7Ontology;SegmentField"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://nhc.org/ontologies/HL7Ontology.owl#PID.5 -->
+
+    <ObjectProperty rdf:about="&HL7Ontology;PID.5">
+        <rdfs:comment>Patient Name</rdfs:comment>
+        <rdfs:range rdf:resource="&HL7Ontology;PID.5.CONTENT"/>
+        <rdfs:domain rdf:resource="&HL7Ontology;PID.CONTENT"/>
+        <rdfs:subPropertyOf rdf:resource="&HL7Ontology;SegmentField"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://nhc.org/ontologies/HL7Ontology.owl#SegmentField -->
+
+    <ObjectProperty rdf:about="&HL7Ontology;SegmentField"/>
+    
+
+
+    <!-- http://nhc.org/ontologies/HL7Ontology.owl#XPN.1 -->
+
+    <ObjectProperty rdf:about="&HL7Ontology;XPN.1">
+        <rdfs:subPropertyOf rdf:resource="&HL7Ontology;ComplexDataTypeComponent"/>
+        <rdfs:range rdf:resource="&HL7Ontology;FN"/>
+        <rdfs:domain rdf:resource="&HL7Ontology;XPN"/>
+    </ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://nhc.org/ontologies/HL7Ontology.owl#CN.1 -->
+
+    <DatatypeProperty rdf:about="&HL7Ontology;CN.1">
+        <rdfs:comment>ID number (ST)</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="&HL7Ontology;ST_type"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://nhc.org/ontologies/HL7Ontology.owl#CN.2 -->
+
+    <DatatypeProperty rdf:about="&HL7Ontology;CN.2">
+        <rdfs:comment>family name</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="&HL7Ontology;ST_type"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://nhc.org/ontologies/HL7Ontology.owl#CN.3 -->
+
+    <DatatypeProperty rdf:about="&HL7Ontology;CN.3">
+        <rdfs:comment>given name</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="&HL7Ontology;ST_type"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://nhc.org/ontologies/HL7Ontology.owl#CX.1 -->
+
+    <DatatypeProperty rdf:about="&HL7Ontology;CX.1">
+        <rdfs:subPropertyOf rdf:resource="&HL7Ontology;ST_type"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://nhc.org/ontologies/HL7Ontology.owl#CX.2 -->
+
+    <DatatypeProperty rdf:about="&HL7Ontology;CX.2">
+        <rdfs:subPropertyOf rdf:resource="&HL7Ontology;NM"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://nhc.org/ontologies/HL7Ontology.owl#EI.1 -->
+
+    <DatatypeProperty rdf:about="&HL7Ontology;EI.1">
+        <rdfs:comment>entity identifier</rdfs:comment>
+        <rdfs:domain rdf:resource="&HL7Ontology;EI"/>
+        <rdfs:subPropertyOf rdf:resource="&HL7Ontology;ST_type"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://nhc.org/ontologies/HL7Ontology.owl#FN.1 -->
+
+    <DatatypeProperty rdf:about="&HL7Ontology;FN.1">
+        <rdfs:comment>family name</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="&HL7Ontology;ST_type"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://nhc.org/ontologies/HL7Ontology.owl#FN.2 -->
+
+    <DatatypeProperty rdf:about="&HL7Ontology;FN.2">
+        <rdfs:comment>last name prefix</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="&HL7Ontology;ST_type"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://nhc.org/ontologies/HL7Ontology.owl#IS.PROP -->
+
+    <DatatypeProperty rdf:about="&HL7Ontology;IS.PROP">
+        <rdfs:subPropertyOf rdf:resource="&HL7Ontology;PrimitiveProperty"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://nhc.org/ontologies/HL7Ontology.owl#NM -->
+
+    <DatatypeProperty rdf:about="&HL7Ontology;NM">
+        <rdfs:comment>check digit</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="&HL7Ontology;PrimitiveProperty"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://nhc.org/ontologies/HL7Ontology.owl#PrimitiveProperty -->
+
+    <DatatypeProperty rdf:about="&HL7Ontology;PrimitiveProperty"/>
+    
+
+
+    <!-- http://nhc.org/ontologies/HL7Ontology.owl#ST_type -->
+
+    <DatatypeProperty rdf:about="&HL7Ontology;ST_type">
+        <rdfs:comment>String data type. String Data is left justified with trailing blanks
+optional. Any printable ASCII characters are allowed.</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="&HL7Ontology;PrimitiveProperty"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://nhc.org/ontologies/HL7Ontology.owl#TS.1 -->
+
+    <DatatypeProperty rdf:about="&HL7Ontology;TS.1">
+        <rdfs:comment>time of an event</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="&HL7Ontology;ST_type"/>
+        <rdfs:domain rdf:resource="&HL7Ontology;TS"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://nhc.org/ontologies/HL7Ontology.owl#TS.2 -->
+
+    <DatatypeProperty rdf:about="&HL7Ontology;TS.2">
+        <rdfs:comment>degree of precision</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="&HL7Ontology;ST_type"/>
+        <rdfs:domain rdf:resource="&HL7Ontology;TS"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://nhc.org/ontologies/HL7Ontology.owl#XPN.2 -->
+
+    <DatatypeProperty rdf:about="&HL7Ontology;XPN.2">
+        <rdfs:comment>given name</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="&HL7Ontology;ST_type"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://nhc.org/ontologies/HL7Ontology.owl#XPN.3 -->
+
+    <DatatypeProperty rdf:about="&HL7Ontology;XPN.3">
+        <rdfs:comment>middle initial or name</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="&HL7Ontology;ST_type"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://nhc.org/ontologies/HL7Ontology.owl#hasContent -->
+
+    <DatatypeProperty rdf:about="&HL7Ontology;hasContent">
+        <rdfs:domain rdf:resource="&HL7Ontology;PrimitiveDataType"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://nhc.org/ontologies/HL7Ontology.owl#CE -->
+
+    <Class rdf:about="&HL7Ontology;CE">
+        <rdfs:subClassOf rdf:resource="&HL7Ontology;ComplexDataType"/>
+        <rdfs:comment>Coded Element data type. This data type transmits codes and the text
+associated with the code. This type has six components, as follows:
+identifier, text, name of coding system, alternate identifier, alternate
+text, and name of alternate coding system.</rdfs:comment>
+    </Class>
+    
+
+
+    <!-- http://nhc.org/ontologies/HL7Ontology.owl#CE.1.CONTENT -->
+
+    <Class rdf:about="&HL7Ontology;CE.1.CONTENT">
+        <rdfs:subClassOf rdf:resource="&HL7Ontology;ST"/>
+        <rdfs:comment>identifier</rdfs:comment>
+    </Class>
+    
+
+
+    <!-- http://nhc.org/ontologies/HL7Ontology.owl#CE.2.CONTENT -->
+
+    <Class rdf:about="&HL7Ontology;CE.2.CONTENT">
+        <rdfs:subClassOf rdf:resource="&HL7Ontology;ST"/>
+        <rdfs:comment>TEXT</rdfs:comment>
+    </Class>
+    
+
+
+    <!-- http://nhc.org/ontologies/HL7Ontology.owl#CE.3.CONTENT -->
+
+    <Class rdf:about="&HL7Ontology;CE.3.CONTENT">
+        <rdfs:subClassOf rdf:resource="&HL7Ontology;ST"/>
+        <rdfs:comment>name of coding system</rdfs:comment>
+    </Class>
+    
+
+
+    <!-- http://nhc.org/ontologies/HL7Ontology.owl#CN -->
+
+    <Class rdf:about="&HL7Ontology;CN">
+        <rdfs:subClassOf rdf:resource="&HL7Ontology;ComplexDataType"/>
+    </Class>
+    
+
+
+    <!-- http://nhc.org/ontologies/HL7Ontology.owl#CX -->
+
+    <Class rdf:about="&HL7Ontology;CX">
+        <rdfs:subClassOf rdf:resource="&HL7Ontology;ComplexDataType"/>
+        <rdfs:comment>Extended composite ID with check digit data type. Used for specifying
+an identifier with its associated administrative detail.</rdfs:comment>
+    </Class>
+    
+
+
+    <!-- http://nhc.org/ontologies/HL7Ontology.owl#CX.3.CONTENT -->
+
+    <Class rdf:about="&HL7Ontology;CX.3.CONTENT">
+        <rdfs:subClassOf rdf:resource="&HL7Ontology;ID"/>
+        <rdfs:comment>code identifying the check digit scheme employed</rdfs:comment>
+    </Class>
+    
+
+
+    <!-- http://nhc.org/ontologies/HL7Ontology.owl#ComplexDataType -->
+
+    <Class rdf:about="&HL7Ontology;ComplexDataType">
+        <rdfs:subClassOf rdf:resource="&HL7Ontology;DataType"/>
+    </Class>
+    
+
+
+    <!-- http://nhc.org/ontologies/HL7Ontology.owl#DataType -->
+
+    <Class rdf:about="&HL7Ontology;DataType"/>
+    
+
+
+    <!-- http://nhc.org/ontologies/HL7Ontology.owl#EI -->
+
+    <Class rdf:about="&HL7Ontology;EI">
+        <rdfs:subClassOf rdf:resource="&HL7Ontology;ComplexDataType"/>
+        <rdfs:comment>Entity identifier data type.</rdfs:comment>
+    </Class>
+    
+
+
+    <!-- http://nhc.org/ontologies/HL7Ontology.owl#EI.2.CONTENT -->
+
+    <Class rdf:about="&HL7Ontology;EI.2.CONTENT">
+        <rdfs:subClassOf rdf:resource="&HL7Ontology;IS"/>
+        <rdfs:comment>&lt;hl7:Type&gt;IS&lt;/hl7:Type&gt;
+        &lt;hl7:Table&gt;HL70300&lt;/hl7:Table&gt;
+        &lt;hl7:LongName&gt;namespace ID&lt;/hl7:LongName&gt;</rdfs:comment>
+    </Class>
+    
+
+
+    <!-- http://nhc.org/ontologies/HL7Ontology.owl#FN -->
+
+    <Class rdf:about="&HL7Ontology;FN">
+        <rdfs:subClassOf rdf:resource="&HL7Ontology;ComplexDataType"/>
+    </Class>
+    
+
+
+    <!-- http://nhc.org/ontologies/HL7Ontology.owl#ID -->
+
+    <Class rdf:about="&HL7Ontology;ID">
+        <rdfs:subClassOf rdf:resource="&HL7Ontology;PrimitiveDataType"/>
+        <rdfs:comment>Coded value for user defined tables data type.(xsd:string)</rdfs:comment>
+    </Class>
+    
+
+
+    <!-- http://nhc.org/ontologies/HL7Ontology.owl#IS -->
+
+    <Class rdf:about="&HL7Ontology;IS">
+        <rdfs:subClassOf rdf:resource="&HL7Ontology;PrimitiveDataType"/>
+    </Class>
+    
+
+
+    <!-- http://nhc.org/ontologies/HL7Ontology.owl#MessageType -->
+
+    <Class rdf:about="&HL7Ontology;MessageType"/>
+    
+
+
+    <!-- http://nhc.org/ontologies/HL7Ontology.owl#NDL -->
+
+    <Class rdf:about="&HL7Ontology;NDL">
+        <rdfs:subClassOf rdf:resource="&HL7Ontology;ComplexDataType"/>
+    </Class>
+    
+
+
+    <!-- http://nhc.org/ontologies/HL7Ontology.owl#OBR.1.CONTENT -->
+
+    <Class rdf:about="&HL7Ontology;OBR.1.CONTENT">
+        <rdfs:subClassOf rdf:resource="&HL7Ontology;SI"/>
+        <rdfs:comment>Set ID - OBR</rdfs:comment>
+    </Class>
+    
+
+
+    <!-- http://nhc.org/ontologies/HL7Ontology.owl#OBR.2.CONTENT -->
+
+    <Class rdf:about="&HL7Ontology;OBR.2.CONTENT">
+        <rdfs:subClassOf rdf:resource="&HL7Ontology;EI"/>
+        <rdfs:comment>Placer Order Number</rdfs:comment>
+    </Class>
+    
+
+
+    <!-- http://nhc.org/ontologies/HL7Ontology.owl#OBR.25.CONTENT -->
+
+    <Class rdf:about="&HL7Ontology;OBR.25.CONTENT">
+        <rdfs:subClassOf rdf:resource="&HL7Ontology;ID"/>
+        <rdfs:comment>Result Status</rdfs:comment>
+    </Class>
+    
+
+
+    <!-- http://nhc.org/ontologies/HL7Ontology.owl#OBR.3.CONTENT -->
+
+    <Class rdf:about="&HL7Ontology;OBR.3.CONTENT">
+        <rdfs:subClassOf rdf:resource="&HL7Ontology;EI"/>
+        <rdfs:comment>Filler Order Number</rdfs:comment>
+    </Class>
+    
+
+
+    <!-- http://nhc.org/ontologies/HL7Ontology.owl#OBR.32.CONTENT -->
+
+    <Class rdf:about="&HL7Ontology;OBR.32.CONTENT">
+        <rdfs:subClassOf rdf:resource="&HL7Ontology;NDL"/>
+        <rdfs:comment>Principal Result Interpreter +</rdfs:comment>
+    </Class>
+    
+
+
+    <!-- http://nhc.org/ontologies/HL7Ontology.owl#OBR.4.CONTENT -->
+
+    <Class rdf:about="&HL7Ontology;OBR.4.CONTENT">
+        <rdfs:subClassOf rdf:resource="&HL7Ontology;CE"/>
+        <rdfs:comment>Universal Service ID</rdfs:comment>
+    </Class>
+    
+
+
+    <!-- http://nhc.org/ontologies/HL7Ontology.owl#OBR.7.CONTENT -->
+
+    <Class rdf:about="&HL7Ontology;OBR.7.CONTENT">
+        <rdfs:subClassOf rdf:resource="&HL7Ontology;TS"/>
+        <rdfs:comment>Observation Date/Time</rdfs:comment>
+    </Class>
+    
+
+
+    <!-- http://nhc.org/ontologies/HL7Ontology.owl#OBR.CONTENT -->
+
+    <Class rdf:about="&HL7Ontology;OBR.CONTENT">
+        <rdfs:subClassOf rdf:resource="&HL7Ontology;Segment"/>
+    </Class>
+    
+
+
+    <!-- http://nhc.org/ontologies/HL7Ontology.owl#OBX.1.CONTENT -->
+
+    <Class rdf:about="&HL7Ontology;OBX.1.CONTENT">
+        <rdfs:subClassOf rdf:resource="&HL7Ontology;SI"/>
+        <rdfs:comment>Set ID - OBX</rdfs:comment>
+    </Class>
+    
+
+
+    <!-- http://nhc.org/ontologies/HL7Ontology.owl#OBX.2.CONTENT -->
+
+    <Class rdf:about="&HL7Ontology;OBX.2.CONTENT">
+        <rdfs:subClassOf rdf:resource="&HL7Ontology;ID"/>
+        <rdfs:comment>Value Type</rdfs:comment>
+    </Class>
+    
+
+
+    <!-- http://nhc.org/ontologies/HL7Ontology.owl#OBX.3.CONTENT -->
+
+    <Class rdf:about="&HL7Ontology;OBX.3.CONTENT">
+        <rdfs:subClassOf rdf:resource="&HL7Ontology;CE"/>
+        <rdfs:comment>Observation Identifier</rdfs:comment>
+    </Class>
+    
+
+
+    <!-- http://nhc.org/ontologies/HL7Ontology.owl#OBX.4.CONTENT -->
+
+    <Class rdf:about="&HL7Ontology;OBX.4.CONTENT">
+        <rdfs:subClassOf rdf:resource="&HL7Ontology;ST"/>
+        <rdfs:comment>Observation Sub-ID</rdfs:comment>
+    </Class>
+    
+
+
+    <!-- http://nhc.org/ontologies/HL7Ontology.owl#OBX.5.CONTENT -->
+
+    <Class rdf:about="&HL7Ontology;OBX.5.CONTENT">
+        <rdfs:subClassOf rdf:resource="&HL7Ontology;ST"/>
+        <rdfs:comment>Observation Value</rdfs:comment>
+    </Class>
+    
+
+
+    <!-- http://nhc.org/ontologies/HL7Ontology.owl#OBX.CONTENT -->
+
+    <Class rdf:about="&HL7Ontology;OBX.CONTENT">
+        <rdfs:subClassOf rdf:resource="&HL7Ontology;Segment"/>
+    </Class>
+    
+
+
+    <!-- http://nhc.org/ontologies/HL7Ontology.owl#ORC.1.CONTENT -->
+
+    <Class rdf:about="&HL7Ontology;ORC.1.CONTENT">
+        <rdfs:subClassOf rdf:resource="&HL7Ontology;ID"/>
+        <rdfs:comment>Order control</rdfs:comment>
+    </Class>
+    
+
+
+    <!-- http://nhc.org/ontologies/HL7Ontology.owl#ORC.16.CONTENT -->
+
+    <Class rdf:about="&HL7Ontology;ORC.16.CONTENT">
+        <rdfs:subClassOf rdf:resource="&HL7Ontology;CX"/>
+        <rdfs:comment>Order Control Code Reason</rdfs:comment>
+    </Class>
+    
+
+
+    <!-- http://nhc.org/ontologies/HL7Ontology.owl#ORC.2.CONTENT -->
+
+    <Class rdf:about="&HL7Ontology;ORC.2.CONTENT">
+        <rdfs:subClassOf rdf:resource="&HL7Ontology;EI"/>
+        <rdfs:comment>Placer Order Number</rdfs:comment>
+    </Class>
+    
+
+
+    <!-- http://nhc.org/ontologies/HL7Ontology.owl#ORC.9.CONTENT -->
+
+    <Class rdf:about="&HL7Ontology;ORC.9.CONTENT">
+        <rdfs:subClassOf rdf:resource="&HL7Ontology;TS"/>
+        <rdfs:comment>Date/Time of Transaction</rdfs:comment>
+    </Class>
+    
+
+
+    <!-- http://nhc.org/ontologies/HL7Ontology.owl#ORC.CONTENT -->
+
+    <Class rdf:about="&HL7Ontology;ORC.CONTENT">
+        <rdfs:subClassOf rdf:resource="&HL7Ontology;Segment"/>
+    </Class>
+    
+
+
+    <!-- http://nhc.org/ontologies/HL7Ontology.owl#ORU_R01.CONTENT -->
+
+    <Class rdf:about="&HL7Ontology;ORU_R01.CONTENT">
+        <rdfs:subClassOf rdf:resource="&HL7Ontology;MessageType"/>
+        <rdfs:comment>ORU_R01</rdfs:comment>
+    </Class>
+    
+
+
+    <!-- http://nhc.org/ontologies/HL7Ontology.owl#PID.1.CONTENT -->
+
+    <Class rdf:about="&HL7Ontology;PID.1.CONTENT">
+        <rdfs:subClassOf rdf:resource="&HL7Ontology;SI"/>
+        <rdfs:comment>Set ID - PID</rdfs:comment>
+    </Class>
+    
+
+
+    <!-- http://nhc.org/ontologies/HL7Ontology.owl#PID.3.CONTENT -->
+
+    <Class rdf:about="&HL7Ontology;PID.3.CONTENT">
+        <rdfs:subClassOf rdf:resource="&HL7Ontology;CX"/>
+        <rdfs:comment>Patient Identifier List</rdfs:comment>
+    </Class>
+    
+
+
+    <!-- http://nhc.org/ontologies/HL7Ontology.owl#PID.5.CONTENT -->
+
+    <Class rdf:about="&HL7Ontology;PID.5.CONTENT">
+        <rdfs:subClassOf rdf:resource="&HL7Ontology;XPN"/>
+        <rdfs:comment>Patient Name</rdfs:comment>
+    </Class>
+    
+
+
+    <!-- http://nhc.org/ontologies/HL7Ontology.owl#PID.CONTENT -->
+
+    <Class rdf:about="&HL7Ontology;PID.CONTENT">
+        <rdfs:subClassOf rdf:resource="&HL7Ontology;Segment"/>
+    </Class>
+    
+
+
+    <!-- http://nhc.org/ontologies/HL7Ontology.owl#PrimitiveDataType -->
+
+    <Class rdf:about="&HL7Ontology;PrimitiveDataType">
+        <rdfs:subClassOf rdf:resource="&HL7Ontology;DataType"/>
+    </Class>
+    
+
+
+    <!-- http://nhc.org/ontologies/HL7Ontology.owl#SI -->
+
+    <Class rdf:about="&HL7Ontology;SI">
+        <rdfs:subClassOf rdf:resource="&HL7Ontology;PrimitiveDataType"/>
+    </Class>
+    
+
+
+    <!-- http://nhc.org/ontologies/HL7Ontology.owl#ST -->
+
+    <Class rdf:about="&HL7Ontology;ST">
+        <rdfs:subClassOf rdf:resource="&HL7Ontology;PrimitiveDataType"/>
+        <rdfs:comment>String data type. String Data is left justified with trailing blanks
+optional. Any printable ASCII characters are allowed.</rdfs:comment>
+    </Class>
+    
+
+
+    <!-- http://nhc.org/ontologies/HL7Ontology.owl#Segment -->
+
+    <Class rdf:about="&HL7Ontology;Segment"/>
+    
+
+
+    <!-- http://nhc.org/ontologies/HL7Ontology.owl#TS -->
+
+    <Class rdf:about="&HL7Ontology;TS">
+        <rdfs:subClassOf rdf:resource="&HL7Ontology;ComplexDataType"/>
+    </Class>
+    
+
+
+    <!-- http://nhc.org/ontologies/HL7Ontology.owl#TX -->
+
+    <Class rdf:about="&HL7Ontology;TX">
+        <rdfs:subClassOf rdf:resource="&HL7Ontology;PrimitiveDataType"/>
+    </Class>
+    
+
+
+    <!-- http://nhc.org/ontologies/HL7Ontology.owl#XPN -->
+
+    <Class rdf:about="&HL7Ontology;XPN">
+        <rdfs:subClassOf rdf:resource="&HL7Ontology;ComplexDataType"/>
+        <rdfs:comment>Extended person name data type. In version 2.3, replaces the PN data
+type.</rdfs:comment>
+    </Class>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.2.3.1824) http://owlapi.sourceforge.net -->
+

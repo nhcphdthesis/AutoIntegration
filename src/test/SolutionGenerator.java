@@ -51,8 +51,15 @@ public class SolutionGenerator {
 				mf.sortRouters();
 				System.out.println(mf.getName()+":"+mf.getRouters().toString());
 				Mediator last = ec_inbound;
-				
-				generateTranslator(mf);
+				// if mapping is found, generate translator
+				Translator t = generateTranslator(mf);
+				if(t!=null){
+					Channel c = new Channel("from endpoint to translator");
+					c.setSrcFilter(last);
+					c.setTgtFilter(t);
+					solution.addChannel(c);
+					last=t;
+				}
 				
 				for (int i=0;i<mf.getRouters().size();i++){
 					Router router = mf.getRouters().get(i);
@@ -72,8 +79,18 @@ public class SolutionGenerator {
 		return solution;
 	}
 	public Translator generateTranslator(MessageFlow mf){
-		ArrayList<String> defs = MappingFinder.getInstance().findMappingDef(mf.getSource().getOperation().getOutput(), mf.getSource().getOperation().getInput());
+		long begin = System.currentTimeMillis();
+
+		ArrayList<String> defs = MappingFinder.getInstance().findMappingDef(mf.getSource().getOperation().getOutput(), mf.getTarget().getOperation().getInput());
+		if (defs.size()==0){
+			return null;
+		}
+		long end = System.currentTimeMillis();
+		long cost = end - begin;
+		System.out.println("find time: "+ cost);
 		Translator t = new Translator();
+		t.setName("translator for "+mf.getName());
+		t.setType("SemanticTranslator");
 		for (String def : defs){
 			prl("adding: "+def);
 			t.addMappingDef(def);

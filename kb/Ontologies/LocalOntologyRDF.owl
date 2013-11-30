@@ -1,0 +1,177 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY LocalOntology "http://nhc.org/ontologies/LocalOntology.owl#" >
+]>
+
+
+<rdf:RDF xmlns="http://www.w3.org/2002/07/owl#"
+     xml:base="http://www.w3.org/2002/07/owl"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:LocalOntology="http://nhc.org/ontologies/LocalOntology.owl#">
+    <Ontology rdf:about="http://nhc.org/ontologies/LocalOntology.owl"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Datatypes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://nhc.org/ontologies/LocalOntology.owl#hasDiagnosis -->
+
+    <ObjectProperty rdf:about="&LocalOntology;hasDiagnosis">
+        <rdfs:range rdf:resource="&LocalOntology;ExamDiagnosis"/>
+        <rdfs:domain rdf:resource="&LocalOntology;ReportMessage"/>
+        <rdfs:subPropertyOf rdf:resource="&LocalOntology;hasObservation"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://nhc.org/ontologies/LocalOntology.owl#hasObservation -->
+
+    <ObjectProperty rdf:about="&LocalOntology;hasObservation">
+        <rdfs:domain rdf:resource="&LocalOntology;ReportMessage"/>
+        <rdfs:range rdf:resource="&LocalOntology;StudyObservation"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://nhc.org/ontologies/LocalOntology.owl#hasObservationContent -->
+
+    <ObjectProperty rdf:about="&LocalOntology;hasObservationContent">
+        <rdfs:range rdf:resource="&LocalOntology;ObservationContent"/>
+        <rdfs:domain rdf:resource="&LocalOntology;StudyObservation"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://nhc.org/ontologies/LocalOntology.owl#hasPath -->
+
+    <ObjectProperty rdf:about="&LocalOntology;hasPath">
+        <rdfs:range rdf:resource="&LocalOntology;ReportLocation"/>
+        <rdfs:domain rdf:resource="&LocalOntology;ReportMessage"/>
+        <rdfs:subPropertyOf rdf:resource="&LocalOntology;hasObservation"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://nhc.org/ontologies/LocalOntology.owl#hasView -->
+
+    <ObjectProperty rdf:about="&LocalOntology;hasView">
+        <rdfs:range rdf:resource="&LocalOntology;ExamView"/>
+        <rdfs:domain rdf:resource="&LocalOntology;ReportMessage"/>
+        <rdfs:subPropertyOf rdf:resource="&LocalOntology;hasObservation"/>
+    </ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://nhc.org/ontologies/LocalOntology.owl#hasContentValue -->
+
+    <DatatypeProperty rdf:about="&LocalOntology;hasContentValue">
+        <rdfs:domain rdf:resource="&LocalOntology;ObservationContent"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://nhc.org/ontologies/LocalOntology.owl#ExamDescription -->
+
+    <Class rdf:about="&LocalOntology;ExamDescription">
+        <rdfs:subClassOf rdf:resource="&LocalOntology;StudyObservation"/>
+    </Class>
+    
+
+
+    <!-- http://nhc.org/ontologies/LocalOntology.owl#ExamDiagnosis -->
+
+    <Class rdf:about="&LocalOntology;ExamDiagnosis">
+        <rdfs:subClassOf rdf:resource="&LocalOntology;StudyObservation"/>
+    </Class>
+    
+
+
+    <!-- http://nhc.org/ontologies/LocalOntology.owl#ExamView -->
+
+    <Class rdf:about="&LocalOntology;ExamView">
+        <rdfs:subClassOf rdf:resource="&LocalOntology;StudyObservation"/>
+    </Class>
+    
+
+
+    <!-- http://nhc.org/ontologies/LocalOntology.owl#ObservationContent -->
+
+    <Class rdf:about="&LocalOntology;ObservationContent">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    </Class>
+    
+
+
+    <!-- http://nhc.org/ontologies/LocalOntology.owl#ReportLocation -->
+
+    <Class rdf:about="&LocalOntology;ReportLocation">
+        <rdfs:subClassOf rdf:resource="&LocalOntology;StudyObservation"/>
+    </Class>
+    
+
+
+    <!-- http://nhc.org/ontologies/LocalOntology.owl#ReportMessage -->
+
+    <Class rdf:about="&LocalOntology;ReportMessage"/>
+    
+
+
+    <!-- http://nhc.org/ontologies/LocalOntology.owl#StudyObservation -->
+
+    <Class rdf:about="&LocalOntology;StudyObservation"/>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.2.3.1824) http://owlapi.sourceforge.net -->
+
