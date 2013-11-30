@@ -9,6 +9,10 @@ Given these information, the software automatically finds behavior mismatch patt
 
 **Output**: the integration solution that addresses solution to message semantic and behaivor mismatches. Semantic translator is generated to execute ontology mappings from source ontology to target ontology. Enterprise Integration Pattern routers are generated to route messages to mediate the behavior mismatches.
 
+The overall method to generate integration solution from a well-defined BPMN collaboration model is as following:
+
+![Solution](/cases/solution.png)
+
 Data Semantics Mediation
 -------------------------
 
