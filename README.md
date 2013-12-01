@@ -39,6 +39,8 @@ During generation of integration solution, the computer examines the two message
 6. If the found corresponding concepts are not at all referenced by the source message annotation, probably user intervention is necessary to define new ontology mapping or new annotation.
 
 In this project, the ontology definitions and mappings are stored in the Knowledge Base using Jena TDB.
+Founding _owl:equivalentClass_ relationships between concepts in ontologies can be achieved by Jena API `listEquivalentClassses()` or using standard SPARQL query `?c owl:equivalentClass ?input`.
+
 
 Behavior Mismatch Mediation Test Cases
 ---------------
