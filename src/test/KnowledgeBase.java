@@ -14,7 +14,13 @@ import com.hp.hpl.jena.ontology.OntModelSpec;
 import com.hp.hpl.jena.ontology.OntProperty;
 import com.hp.hpl.jena.ontology.OntResource;
 import com.hp.hpl.jena.query.Dataset;
+import com.hp.hpl.jena.query.Query;
+import com.hp.hpl.jena.query.QueryExecution;
+import com.hp.hpl.jena.query.QueryExecutionFactory;
+import com.hp.hpl.jena.query.QueryFactory;
 import com.hp.hpl.jena.query.ReadWrite;
+import com.hp.hpl.jena.query.ResultSet;
+import com.hp.hpl.jena.query.ResultSetFormatter;
 import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
 import com.hp.hpl.jena.tdb.TDBFactory;
@@ -49,6 +55,7 @@ public class KnowledgeBase {
 		OntModel ontology = new KnowledgeBase().getOntologyModel();
 		
 		String input_URI = "http://nhc.org/ontologies/HL7Ontology.owl#OBX.CONTENT";
+		//method 1: using Jena API
 		ArrayList<OntResource> results = new ArrayList<OntResource>();
 
 				
@@ -73,6 +80,30 @@ public class KnowledgeBase {
 					}
 				}
 				else {System.out.println("not class or property");}
+				//method 2: using SPARQL query
+				// Create a new query
+				String queryString = 
+					"PREFIX owl: <http://www.w3.org/2002/07/owl#> " +
+					"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> " +
+					"PREFIX hl7: <http://nhc.org/ontologies/HL7Ontology.owl#> " +
+					"PREFIX cis: <http://nhc.org/ontologies/LocalOntology.owl#> " +
+					"SELECT ?c " +
+					"WHERE {" +
+					"      ?c owl:equivalentClass  hl7:" + input_URI.substring(input_URI.indexOf("#")+1) + " ." +
+					"      }";
+				System.out.println("query = "+queryString);
+
+				Query query = QueryFactory.create(queryString);
+
+				// Execute the query and obtain results
+				QueryExecution qe = QueryExecutionFactory.create(query, ontology);
+				ResultSet result = qe.execSelect();
+
+				// Output query results	
+				ResultSetFormatter.out(System.out, result, query);
+
+				// Important - free up resources used running the query
+				qe.close();
 //		init();
 	}
 static void init(){
