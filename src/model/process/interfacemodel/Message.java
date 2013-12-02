@@ -4,6 +4,25 @@ import java.util.ArrayList;
 
 public class Message {
     ArrayList<SemanticAnnotation> annotations=new ArrayList<SemanticAnnotation>();
+    String schemaRef = "";
+    String semanticRef = "";
+    public String getSemanticRef() {
+		return semanticRef;
+	}
+
+	public void setSemanticRef(String semanticRef) {
+		this.semanticRef = semanticRef;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	String name = "";
 
 	public ArrayList<SemanticAnnotation> getAnnotations() {
 		return annotations;
