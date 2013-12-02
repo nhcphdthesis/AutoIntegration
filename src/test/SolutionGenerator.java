@@ -7,6 +7,7 @@ import model.integration.*;
 import model.process.*;
 import model.process.Process;
 import model.process.interfacemodel.*;
+import model.semantics.MappingFinder;
 
 public class SolutionGenerator {
 	

@@ -10,6 +10,8 @@ import model.process.interfacemodel.Endpoint;
 import model.process.interfacemodel.InterfaceModel;
 import model.process.interfacemodel.Operation;
 import model.process.interfacemodel.SemanticAnnotation;
+import model.semantics.KnowledgeBase;
+import model.semantics.MappingFinder;
 
 public class Scenario {
 	public static CollaborationModel createChoreographyComplex1() {
@@ -359,8 +361,9 @@ public class Scenario {
 		Operation ep1_op1 = new Operation();
 		ep1_op1.setName("Send Order Operation");
 		ep1_op1.setInterfce(inf1);
-		ep1_op1.getOutput().addAnnotation(new SemanticAnnotation("zhenduan",MappingFinder.CIS_NS+"hasObservation"));
-		ep1_op1.getOutput().addAnnotation(new SemanticAnnotation("zhenduanContent",MappingFinder.CIS_NS+"StudyObservation"));
+		ep1_op1.getOutput().addAnnotation(new SemanticAnnotation("zhenduan",KnowledgeBase.CIS_NS+"hasObservation"));
+		ep1_op1.getOutput().addAnnotation(new SemanticAnnotation("zhenduanContent",KnowledgeBase.CIS_NS+"StudyObservation"));
+		ep1_op1.getOutput().setSemanticRef(KnowledgeBase.CIS_NS+"ReportMessage");
 		p1_s_order.setOperation(ep1_op1);
 		
 		Operation ep1_op2 = new Operation();
@@ -384,11 +387,14 @@ public class Scenario {
 		ep2_op_order.setName("Receive Order");
 		ep2_op_order.setInterfce(inf2);
 		p2_r_order.setOperation(ep2_op_order);
-		ep2_op_order.getInput().addAnnotation(new SemanticAnnotation("obx",MappingFinder.HL7_NS+"OBX"));
-		ep2_op_order.getInput().addAnnotation(new SemanticAnnotation("obx.content",MappingFinder.HL7_NS+"OBX.CONTENT"));
+		ep2_op_order.getInput().addAnnotation(new SemanticAnnotation("obx",KnowledgeBase.HL7_NS+"OBX"));
+		ep2_op_order.getInput().addAnnotation(new SemanticAnnotation("obx.content",KnowledgeBase.HL7_NS+"OBX.CONTENT"));
+		
 		Operation ep2_op_item = new Operation();
 		ep2_op_item.setName("Receive Order Item");
 		ep2_op_item.setInterfce(inf2);
+		ep2_op_item.getInput().setSemanticRef(KnowledgeBase.HL7_NS+"OBX.CONTENT");
+		
 		p2_r_item.setOperation(ep2_op_item);
 		Operation ep2_op_response = new Operation();
 		ep2_op_response.setName("Send Response");

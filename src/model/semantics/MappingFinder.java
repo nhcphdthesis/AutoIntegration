@@ -1,4 +1,4 @@
-package test;
+package model.semantics;
 
 import java.io.File;
 import java.io.FileInputStream;

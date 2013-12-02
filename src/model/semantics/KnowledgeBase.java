@@ -1,4 +1,4 @@
-package test;
+package model.semantics;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -52,6 +52,8 @@ public class KnowledgeBase {
 		return ontology;
 	}
 	public static void main(String[] args) {
+//		init();
+		
 		OntModel ontology = new KnowledgeBase().getOntologyModel();
 		
 		String input_URI = "http://nhc.org/ontologies/HL7Ontology.owl#OBX.CONTENT";
@@ -104,13 +106,14 @@ public class KnowledgeBase {
 
 				// Important - free up resources used running the query
 				qe.close();
-//		init();
+
 	}
 static void init(){
 	Dataset dataset = TDBFactory.createDataset(KB);
 //	dataset.begin(ReadWrite.WRITE) ;
 	Model tdb = dataset.getNamedModel("nhcTest");
-	tdb.read(MAPPING_FILE_NAME);
+	
+	tdb.read(MODEL_FILE_NAME);
 	OntModel ontology = ModelFactory.createOntologyModel(OntModelSpec.OWL_DL_MEM, tdb);
 	ontology.writeAll(System.out, "N3");
 	tdb.close();
