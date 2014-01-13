@@ -3,9 +3,16 @@ Behavior Mismatch Mediation Test Cases
 
 When the collaborating systems differ in their message exchange behaviors, mediation is necessary.
 
-This page collects some collaboration scenarios with behavior mismatches. These scenarios are used as test cases of the proposed method.
+This page collects some collaboration scenarios with behavior mismatches. These scenarios are used as test cases of the proposed method. The sources of scenarios include:
+
+1. Service interaction patterns (SIPs)
+2. Complex scenarios I make up
+3. Real cases and variations
+4. Other literatures
 
 Currently there are 20 test cases. These cases are tested using the method, and the results have been validated by integration experts.
+
+The scenarios will be updated occasionally.
 
 
 ##Service Interaction Patterns (SIPs) Variations
@@ -247,6 +254,22 @@ Which means
 CIS and RIS. variation is CIS now has the receive task for study completion. The order of completion and report is different in CIS and RIS. This needs resequencer.
 
 ![Case 2](http://photo.yupoo.com/jjfd/DlvcqqOS/medish.jpg)
+
+
+##Scenarios from Literatures
+
+###Scenario 1
+
+from Xitong Li, Yushun Fan, Stuart Madnick, Quan Z. Sheng. A pattern-based approach to protocol mediation for web services composition. Information and Software Technology, 2010, 52(3): 304-323.
+
+![li](/cases/Scenario from Li.png)
+
+
+###WS-I SCM scenario
+
+![WS-I](cases/WS-I SCM scenario.png)
+
+
 
 
 
