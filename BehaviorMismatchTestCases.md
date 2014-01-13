@@ -29,7 +29,24 @@ Variation 2
 
 Variation 1
 
+client exchange messages with server. One loop-sender pattern, one loop-receiver pattern.
+
 ![send-receive-var1](/cases/SIP/SIP-2-send-receive-variation-1.png)
+
+
+_Output_
+
+    [Channel: channel [from=connector-DefaultOperation: client request, to=auto-agg-loopsender]
+    , Channel: channel [from=auto-agg-loopsender, to=connector-DefaultOperation: server receive]
+    , Channel: channel [from=connector-DefaultOperation: server response, to=auto-splitter]
+    , Channel: channel [from=auto-splitter, to=connector-DefaultOperation: client receive]
+    ]
+
+Which means:
+
+__Flow 1__: Client-request-connector -> aggregator -> Server-resequest-connector.
+
+__Flow 2__: Server-response-connector -> splitter -> Client-response-connector.
 
 Variation 2
 
@@ -107,23 +124,7 @@ Variation-1
 
 ###simpleLoop
 
-client exchange messages with server. One loop-sender pattern, one loop-receiver pattern.
 
-![SimpleLoop](/cases/SimpleLoop.png)
-
-_Output_
-
-    [Channel: channel [from=connector-DefaultOperation: client request, to=auto-agg-loopsender]
-    , Channel: channel [from=auto-agg-loopsender, to=connector-DefaultOperation: server receive]
-    , Channel: channel [from=connector-DefaultOperation: server response, to=auto-splitter]
-    , Channel: channel [from=auto-splitter, to=connector-DefaultOperation: client receive]
-    ]
-
-Which means:
-
-__Flow 1__: Client-request-connector -> aggregator -> Server-resequest-connector.
-
-__Flow 2__: Server-response-connector -> splitter -> Client-response-connector.
 
 
 ###Simple Exclusive
