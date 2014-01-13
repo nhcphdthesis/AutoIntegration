@@ -3,6 +3,26 @@ Behavior Mismatch Mediation Test Cases
 
 When the collaborating systems differ in their message exchange behaviors, mediation is necessary.
 
+This page collects some collaboration scenarios with behavior mismatches. These scenarios are used as test cases of the proposed method.
+
+
+##Service Interaction Patterns (SIPs) Variations
+
+[SIPs](http://math.ut.ee/~dumas/ServiceInteractionPatterns/)  represent a commonly recognised catalogue of typical behaviours of systems in process collaboration, and are regarded as well-established knowledge of choreography scenarios. By altering behaviours of participants in each pattern, a set of commonly encountered behaviour mismatch scenarios was derived. These scenarios with behaviour mismatches were modelled as BPMN coordinated choreographies. 
+
+###Single-send/receive pattern
+
+![Single-send](/cases/SIP/SIP-1-single-send.png)
+
+Variation 1
+
+![Single-send-var1](/cases/SIP/SIP-1-single-send-variation-1.png)
+
+Variation 2
+
+![Single-send-var2](/cases/SIP/SIP-1-single-send-variation-2.png)
+
+
 ###simpleLoop
 
 client exchange messages with server. One loop-sender pattern, one loop-receiver pattern.
