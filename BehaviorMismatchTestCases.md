@@ -23,6 +23,88 @@ Variation 2
 ![Single-send-var2](/cases/SIP/SIP-1-single-send-variation-2.png)
 
 
+###Send-receive pattern
+
+![send-receive](/cases/SIP/SIP-2-send-receive.png)
+
+Variation 1
+
+![send-receive-var1](/cases/SIP/SIP-2-send-receive-variation-1.png)
+
+Variation 2
+
+![send-receive-var2](/cases/SIP/SIP-2-send-receive-variation-2.png)
+
+
+###Racing-Incoming-Messages
+
+![racing](/cases/SIP/SIP-4-racing-incoming-messages.png)
+
+
+###One-to-many Send
+
+![1-many](/cases/SIP/SIP-5-one-to-many-send.png)
+
+Variation-1
+
+![1-many-var1](/cases/SIP/SIP-5-one-to-many-send-variation-1.png)
+
+###One-from-many Receive
+
+![many-1](/cases/SIP/SIP-6-one-from-many-receive.png)
+
+Variation-1
+
+![many-1-var1](/cases/SIP/SIP-6-one-from-many-receive-variation-1.png)
+
+Variation-2
+
+![many-1-var2](/cases/SIP/SIP-6-one-from-many-receive-variation-2.png)
+
+
+###One-to-many Send-Receive
+
+![1-many-sr](/cases/SIP/SIP-7-one-to-many-send-receive.png)
+
+Variation-1
+
+![1-many-sr-var1](/cases/SIP/SIP-7-one-to-many-send-receive-variation-1.png)
+
+
+###Multiple Responses
+
+![multi-response](/cases/SIP/SIP-8-multi-responses.png)
+
+Variation-1
+
+![multi-response-var1](/cases/SIP/SIP-8-multi-responses-variation-1.png)
+
+Variation-2
+
+![multi-response-var2](/cases/SIP/SIP-8-multi-responses-variation-2.png)
+
+
+###Contingent Requests
+
+![contingent](/cases/SIP/SIP-9-contingent-requests.png)
+
+Variation-1
+
+![contingent-var1](/cases/SIP/SIP-9-contingent-requests-variation-1.png)
+
+
+###Request with Referral
+
+![req-ref](/cases/SIP/SIP-11-request-with-referral.png)
+
+Variation-1
+
+![req-ref-var1](/cases/SIP/SIP-9-contingent-requests-variation-1.png)
+
+
+##Sell-constructed Complex Scenarios
+
+
 ###simpleLoop
 
 client exchange messages with server. One loop-sender pattern, one loop-receiver pattern.
@@ -117,6 +199,11 @@ process1 has 3 send tasks. They are tangled with two receive tasks in process 2,
 order-mismatch, multiple-receivers, and multiple-senders
 
 ![Complex 2](http://photo.yupoo.com/jjfd/Dlv9L5tX/medish.jpg)
+
+
+##Real cases and variations
+
+These scenarios are derived from a real case in hospital integration.
 
 ### case 1
 
