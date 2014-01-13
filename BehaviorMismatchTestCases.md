@@ -18,10 +18,32 @@ Variation 1
 
 ![Single-send-var1](/cases/SIP/SIP-1-single-send-variation-1.png)
 
+_Solution_: aggregator.
+
 Variation 2
 
 ![Single-send-var2](/cases/SIP/SIP-1-single-send-variation-2.png)
 
+_Solution_: splitter.
+
+
+Variation-3
+
+one send task is connected to two sequenced tasks. Should use RoutingSlip.
+
+![SimpleSequence](/cases/SimpleSequence.png)
+
+_Output_
+
+    [channels=
+    [Channel: channel [from=connector-DefaultOperation: send, to=auto-routingslip]
+    , Channel: channel [from=auto-routingslip, to=connector-DefaultOperation: receive1]
+    , Channel: channel [from=auto-routingslip, to=connector-DefaultOperation: receive2]
+    ]
+
+Which means
+
+__Flow 1__: source-connecotr -> routing-slip(target1, target2) -> two target-connectors
 
 ###Send-receive pattern
 
@@ -56,6 +78,30 @@ Variation 2
 ###Racing-Incoming-Messages
 
 ![racing](/cases/SIP/SIP-4-racing-incoming-messages.png)
+
+Variation-1
+
+![racing-var1](/cases/SIP/SIP-4-racing-incoming-messages-variation-1.png)
+
+one send task is connected to exclusive receive tasks. Should use CBR.
+
+_Output_
+
+    Solution [channels=
+    [Channel: channel [from=connector-DefaultOperation: send, to=auto-CBR]
+    , Channel: channel [from=auto-CBR, to=connector-DefaultOperation: receive1]
+    , Channel: channel [from=auto-CBR, to=connector-DefaultOperation: receive2]
+    ]
+
+Which means:
+
+__Flow 1__: inbound-endpoint-connector -> CBR -> two outbound-endpoint-connector.
+
+Variation-2
+
+![racing-var2](/cases/SIP/SIP-4-racing-incoming-messages-variation-2.png)
+
+_Solution_: filter+aggregator.
 
 
 ###One-to-many Send
@@ -121,47 +167,7 @@ Variation-1
 
 ##Sell-constructed Complex Scenarios
 
-
-###simpleLoop
-
-
-
-
-###Simple Exclusive
-
-one send task is connected to exclusive receive tasks. Should use CBR.
-
-![SimpleExclusive](http://photo.yupoo.com/jjfd/Dlv9Kvwu/medish.jpg)
-
-_Output_
-
-    Solution [channels=
-    [Channel: channel [from=connector-DefaultOperation: send, to=auto-CBR]
-    , Channel: channel [from=auto-CBR, to=connector-DefaultOperation: receive1]
-    , Channel: channel [from=auto-CBR, to=connector-DefaultOperation: receive2]
-    ]
-
-Which means:
-
-__Flow 1__: inbound-endpoint-connector -> CBR -> two outbound-endpoint-connector.
-
-###Single Sequence
-
-one send task is connected to two sequenced tasks. Should use RoutingSlip.
-
-![SimpleSequence](/cases/SimpleSequence.png)
-
-_Output_
-
-    [channels=
-    [Channel: channel [from=connector-DefaultOperation: send, to=auto-routingslip]
-    , Channel: channel [from=auto-routingslip, to=connector-DefaultOperation: receive1]
-    , Channel: channel [from=auto-routingslip, to=connector-DefaultOperation: receive2]
-    ]
-
-Which means
-
-__Flow 1__: source-connecotr -> routing-slip(target1, target2) -> two target-connectors
+Composition of basic patterns.
 
 ### complex1
 
