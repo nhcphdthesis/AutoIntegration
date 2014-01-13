@@ -5,6 +5,8 @@ When the collaborating systems differ in their message exchange behaviors, media
 
 This page collects some collaboration scenarios with behavior mismatches. These scenarios are used as test cases of the proposed method.
 
+Currently there are 20 test cases. These cases are tested using the method, and the results have been validated by integration experts.
+
 
 ##Service Interaction Patterns (SIPs) Variations
 
