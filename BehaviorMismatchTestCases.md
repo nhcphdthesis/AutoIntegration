@@ -10,7 +10,7 @@ This page collects some collaboration scenarios with behavior mismatches. These 
 3. Real cases and variations
 4. Other literatures
 
-Currently there are 20 test cases. These cases are tested using the method, and the results have been validated by integration experts.
+Currently there are 21 test cases. These cases are tested using the method, and the results have been validated by integration experts. These test results show that the method is effective in designing routing solutions to resolve behavior mismatches.
 
 The scenarios will be updated occasionally.
 
@@ -184,9 +184,19 @@ Variation-1
 
 ![many-1-var1](/cases/SIP/SIP-6-one-from-many-receive-variation-1.png)
 
+_Solution_: filter + aggregator. 
+
 Variation-2
 
 ![many-1-var2](/cases/SIP/SIP-6-one-from-many-receive-variation-2.png)
+
+_Solution_: 
+
+    [Channel: channel [from=connector-DefaultOperation: send1, to=auto-resequencer]
+    , Channel: channel [from=auto-resequencer, to=connector-DefaultOperation: receive 2 in p2]
+    , Channel: channel [from=connector-DefaultOperation: send2, to=auto-resequencer]
+    , Channel: channel [from=auto-resequencer, to=connector-DefaultOperation: receive 1 in p2]
+    ]
 
 
 Variation-3
