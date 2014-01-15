@@ -32,15 +32,17 @@ public class CollaborationModel {
 		if (r1.getProcess()!=r2.getProcess()){
 			return false;
 		}
-		if(s1.getProcess()!=s2.getProcess()){
-			return false;
-		}
+
 		Process pr = r1.getProcess();
 		Process ps=s1.getProcess();
 		if(pr.seq(r1, r2)&&ps.seq(s2, s1)){
 			return true;
 		}
 		if(pr.seq(r2, r1)&&ps.seq(s1, s2)){
+			return true;
+		}
+		if(s1.getProcess()!=s2.getProcess()){
+			//cannot control the order of parallel senders
 			return true;
 		}
 		return false;

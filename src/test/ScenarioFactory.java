@@ -705,6 +705,33 @@ public class ScenarioFactory {
 		return c1;
 	}
 	
+	
+	public static CollaborationModel createOneFromManyReceiveVariation2() {
+		Process p1 = new Process("p1");
+		Process p2 = new Process("p2");
+		Process p3 = new Process("p3");
+
+		SendTask p1_s1 = new SendTask("send1");
+		p1.addTask(p1_s1);
+		SendTask p3_s1 = new SendTask("send2");
+		p3.addTask(p3_s1);
+		ReceiveTask p2_r1 = new ReceiveTask("receive 1 in p2");
+		p2.addTask(p2_r1);
+		ReceiveTask p2_r2 = new ReceiveTask("receive 2 in p2");
+		p2.addTask(p2_r2);
+		p2.assertSeq(p2_r1, p2_r2);
+		
+		CollaborationModel c1 = new CollaborationModel();
+		c1.getParticipants().add(p1);
+		c1.getParticipants().add(p2);
+		c1.getParticipants().add(p3);
+
+		c1.connect(p1_s1, p2_r2);
+		c1.connect(p3_s1, p2_r1);
+		
+		return c1;
+	}
+	
 	public static CollaborationModel createOneFromManyReceiveVariation3() {
 		Process p1 = new Process("p1");
 		Process p2 = new Process("p2");

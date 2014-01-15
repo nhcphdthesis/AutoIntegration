@@ -17,7 +17,7 @@ public class SolutionGenerator {
 	 */
 	public static void main(String[] args) {
 		
-		CollaborationModel cm = ScenarioFactory.createXitongLi();
+		CollaborationModel cm = ScenarioFactory.createOneFromManyReceiveVariation2();
 		SolutionGenerator gen = new SolutionGenerator();
 
 		prl(gen.generateSolution(cm));
