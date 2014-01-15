@@ -18,6 +18,12 @@ public class CollaborationModel {
 		return participants;
 	}
 	
+	public void addParticipant(Process p){
+		if(!this.participants.contains(p)){
+			this.participants.add(p);
+		}
+	}
+	
 	public boolean orderMismatch(MessageFlow mf1,MessageFlow mf2){
 		SendTask s1=mf1.getSource();
 		SendTask s2=mf2.getSource();

@@ -13,7 +13,7 @@ import model.process.interfacemodel.SemanticAnnotation;
 import model.semantics.KnowledgeBase;
 import model.semantics.MappingFinder;
 
-public class Scenario {
+public class ScenarioFactory {
 	public static CollaborationModel createChoreographyComplex1() {
 		Process p1 = new Process("p1");
 		Process p2 = new Process("p2");
@@ -238,69 +238,7 @@ public class Scenario {
 		return c1;
 	}
 	
-	public static CollaborationModel createChoreography_MultiReceiver() {
-		Process p1 = new Process("p1");
-		Process p2 = new Process("p2");
-		Process p3 = new Process("p3");
-		SendTask p1_s1 = new SendTask("send1");
-		p1.addTask(p1_s1);
-		SendTask p1_s2 = new SendTask("send2");
-		p1.addTask(p1_s2);
-		ReceiveTask p2_r1 = new ReceiveTask("receive1");
-		p2.addTask(p2_r1);
-		ReceiveTask p2_r2 = new ReceiveTask("receive2");
-		p2.addTask(p2_r2);
-		ReceiveTask p3_r1 = new ReceiveTask("receive in P3");
-		p3.addTask(p3_r1);
-		
-		CollaborationModel c1 = new CollaborationModel();
-		c1.getParticipants().add(p1);
-		c1.getParticipants().add(p2);
-		c1.getParticipants().add(p3);
-		MessageFlow mf1 = new MessageFlow("mf1",p1_s1,p2_r1);
-		c1.getMfs().add(mf1);
-		MessageFlow mf2 = new MessageFlow("mf2",p1_s1,p2_r2);
-		c1.getMfs().add(mf2);
-		MessageFlow mf3 = new MessageFlow("mf3",p1_s1,p3_r1);
-		c1.getMfs().add(mf3);
-		
-		Endpoint ep1 = new Endpoint();
-		ep1.setURI("hl7://127.0.0.1");
-		InterfaceModel inf1 = new InterfaceModel();
-		inf1.setEndpoint(ep1);
-		Operation ep1_op1 = new Operation();
-		ep1_op1.setName("Send1");
-		ep1_op1.setInterfce(inf1);
-		p1_s1.setOperation(ep1_op1);
-		Operation ep1_op2 = new Operation();
-		ep1_op2.setName("Send2");
-		ep1_op2.setInterfce(inf1);
-		p1_s2.setOperation(ep1_op2);
-		
-		Endpoint ep2 = new Endpoint();
-		InterfaceModel inf2 = new InterfaceModel();
-		inf2.setEndpoint(ep2);
-		Operation ep2_op2 = new Operation();
-		ep2_op2.setName("Receive21");
-		ep2_op2.setInterfce(inf2);
-		Operation ep2_op3 = new Operation();
-		ep2_op3.setName("Receive22");
-		ep2_op3.setInterfce(inf2);
-		p2_r1.setOperation(ep2_op2);
-		p2_r2.setOperation(ep2_op3);
-		ep2.setURI("http://localhost");
-		
-		Endpoint ep3 = new Endpoint();
-		InterfaceModel inf3 = new InterfaceModel();
-		ep3.setURI("db:1234");
-		inf3.setEndpoint(ep3);
-		Operation ep3_op1 = new Operation();
-		ep3_op1.setName("receiveE3");
-		ep3_op1.setInterfce(inf3);
-		p3_r1.setOperation(ep3_op1);
-		
-		return c1;
-	}
+	
 	
 	public static CollaborationModel createChoreography_case() {
 		Process p1 = new Process("p1");
@@ -542,7 +480,7 @@ public class Scenario {
 		return c1;
 	}
 	
-	public static CollaborationModel createChoreography_MultiSender() {
+	public static CollaborationModel createOneFromManyReceiveVariation3() {
 		Process p1 = new Process("p1");
 		Process p2 = new Process("p2");
 		Process p3 = new Process("p3");
@@ -603,7 +541,75 @@ public class Scenario {
 		return c1;
 	}
 	
-	public static CollaborationModel createSimple(){
+
+
+	
+	public static CollaborationModel createSingleSendOrReceiveVariation3(){
+		//simple sequenced receivers
+		CollaborationModel cm=new CollaborationModel();
+		Process client = new Process("process1");
+		Process server = new Process("process2");
+
+		SendTask client_request = new SendTask("send");
+		client.addTask(client_request);
+
+		
+		ReceiveTask server_receive1 = new ReceiveTask("receive1");
+		server.addTask(server_receive1);
+		ReceiveTask server_receive2 = new ReceiveTask("receive2");
+		server.addTask(server_receive2);
+		server.assertSeq(server_receive1, server_receive2);
+		
+		cm.connect(client_request, server_receive1);
+		cm.connect(client_request, server_receive2);
+
+		return cm;
+	}
+
+	public static CollaborationModel createSingleSendOrReceiveVaration1(){
+		Process p1 = new Process("p1");
+		Process p2 = new Process("p2");
+		
+		SendTask p1_s1 = new SendTask("send");
+		p1.addTask(p1_s1);
+		p1_s1.setLoop(true);
+		
+		ReceiveTask p2_r1 = new ReceiveTask("receive");
+		p2.addTask(p2_r1);
+		
+		CollaborationModel cm = new CollaborationModel();
+		cm.addParticipant(p1);
+		cm.addParticipant(p2);
+
+		cm.connect(p1_s1, p2_r1);
+		
+		return cm;
+		
+	}
+	
+	public static CollaborationModel createSingleSendOrReceiveVaration2(){
+		Process p1 = new Process("p1");
+		Process p2 = new Process("p2");
+		
+		SendTask p1_s1 = new SendTask("send");
+		p1.addTask(p1_s1);
+		
+		
+		ReceiveTask p2_r1 = new ReceiveTask("receive");
+		p2.addTask(p2_r1);
+		p2_r1.setLoop(true);
+		
+		CollaborationModel cm = new CollaborationModel();
+		cm.addParticipant(p1);
+		cm.addParticipant(p2);
+
+		cm.connect(p1_s1, p2_r1);
+		
+		return cm;
+		
+	}
+	
+	public static CollaborationModel createSingleSendReceiveVaration1(){
 		CollaborationModel cm=new CollaborationModel();
 		Process client = new Process("client process");
 		Process server = new Process("server process");
@@ -628,7 +634,37 @@ public class Scenario {
 
 		return cm;
 	}
-	public static CollaborationModel createSimpleExclusive(){
+	
+	public static CollaborationModel createSingleSendReceiveVaration2(){
+		Process p1 = new Process("p1");
+		Process p2 = new Process("p2");
+		
+		SendTask p1_s1 = new SendTask("send request");
+		p1.addTask(p1_s1);
+		ReceiveTask p1_r1 = new ReceiveTask("Receive response");
+		p1.addTask(p1_r1);
+		
+		
+		ReceiveTask p2_r1 = new ReceiveTask("receive request in server");
+		p2.addTask(p2_r1);
+		p2_r1.setLoop(true);
+		SendTask p2_s1=new SendTask("response from server");
+		p2.addTask(p2_s1);
+		p2_s1.setLoop(true);
+		
+		CollaborationModel cm = new CollaborationModel();
+		cm.addParticipant(p1);
+		cm.addParticipant(p2);
+
+		cm.connect(p1_s1, p2_r1);
+		cm.connect(p2_s1, p1_r1);
+		
+		return cm;
+		
+	}
+	
+	public static CollaborationModel createRacingIncomingMessagesVariation1(){
+		//simple exclusive
 		CollaborationModel cm=new CollaborationModel();
 		Process client = new Process("process1");
 		Process server = new Process("process2");
@@ -649,24 +685,119 @@ public class Scenario {
 		return cm;
 	}
 	
-	public static CollaborationModel createSimpleSequence(){
+	public static CollaborationModel createRacingIncomingMessagesVariation2(){
+		//simple exclusive
 		CollaborationModel cm=new CollaborationModel();
 		Process client = new Process("process1");
 		Process server = new Process("process2");
 
-		SendTask client_request = new SendTask("send");
-		client.addTask(client_request);
+		SendTask exe1 = new SendTask("send1");
+		client.addTask(exe1);
+		SendTask exe2 = new SendTask("send2");
+		client.addTask(exe2);
+		client.assertExc(exe1, exe2);
 
 		
-		ReceiveTask server_receive1 = new ReceiveTask("receive1");
+		ReceiveTask server_receive1 = new ReceiveTask("receive");
 		server.addTask(server_receive1);
-		ReceiveTask server_receive2 = new ReceiveTask("receive2");
-		server.addTask(server_receive2);
-		server.assertSeq(server_receive1, server_receive2);
 		
-		cm.connect(client_request, server_receive1);
-		cm.connect(client_request, server_receive2);
+		cm.connect(exe1, server_receive1);
+		cm.connect(exe2, server_receive1);
 
 		return cm;
 	}
+	
+	public static CollaborationModel createOne2ManySendVariation1() {
+		//multiple receivers
+		Process p1 = new Process("p1");
+		Process p2 = new Process("p2");
+		Process p3 = new Process("p3");
+		SendTask p1_s1 = new SendTask("send1");
+		p1.addTask(p1_s1);
+
+		ReceiveTask p2_r1 = new ReceiveTask("receive1");
+		p2.addTask(p2_r1);
+
+		ReceiveTask p3_r1 = new ReceiveTask("receive in P3");
+		p3.addTask(p3_r1);
+		
+		CollaborationModel c1 = new CollaborationModel();
+		c1.getParticipants().add(p1);
+		c1.getParticipants().add(p2);
+		c1.getParticipants().add(p3);
+		
+		MessageFlow mf1 = new MessageFlow("mf1",p1_s1,p2_r1);
+		c1.getMfs().add(mf1);
+		MessageFlow mf3 = new MessageFlow("mf3",p1_s1,p3_r1);
+		c1.getMfs().add(mf3);
+		
+		return c1;
+	}
+	
+	public static CollaborationModel createOne2ManySendVariation2() {
+		//multiple receivers
+		Process p1 = new Process("p1");
+		Process p2 = new Process("p2");
+		Process p3 = new Process("p3");
+		SendTask p1_s1 = new SendTask("send1");
+		p1.addTask(p1_s1);
+		SendTask p1_s2 = new SendTask("send2");
+		p1.addTask(p1_s2);
+		ReceiveTask p2_r1 = new ReceiveTask("receive1");
+		p2.addTask(p2_r1);
+		ReceiveTask p2_r2 = new ReceiveTask("receive2");
+		p2.addTask(p2_r2);
+		ReceiveTask p3_r1 = new ReceiveTask("receive in P3");
+		p3.addTask(p3_r1);
+		
+		CollaborationModel c1 = new CollaborationModel();
+		c1.getParticipants().add(p1);
+		c1.getParticipants().add(p2);
+		c1.getParticipants().add(p3);
+		MessageFlow mf1 = new MessageFlow("mf1",p1_s1,p2_r1);
+		c1.getMfs().add(mf1);
+		MessageFlow mf2 = new MessageFlow("mf2",p1_s1,p2_r2);
+		c1.getMfs().add(mf2);
+		MessageFlow mf3 = new MessageFlow("mf3",p1_s1,p3_r1);
+		c1.getMfs().add(mf3);
+		
+		Endpoint ep1 = new Endpoint();
+		ep1.setURI("hl7://127.0.0.1");
+		InterfaceModel inf1 = new InterfaceModel();
+		inf1.setEndpoint(ep1);
+		Operation ep1_op1 = new Operation();
+		ep1_op1.setName("Send1");
+		ep1_op1.setInterfce(inf1);
+		p1_s1.setOperation(ep1_op1);
+		Operation ep1_op2 = new Operation();
+		ep1_op2.setName("Send2");
+		ep1_op2.setInterfce(inf1);
+		p1_s2.setOperation(ep1_op2);
+		
+		Endpoint ep2 = new Endpoint();
+		InterfaceModel inf2 = new InterfaceModel();
+		inf2.setEndpoint(ep2);
+		Operation ep2_op2 = new Operation();
+		ep2_op2.setName("Receive21");
+		ep2_op2.setInterfce(inf2);
+		Operation ep2_op3 = new Operation();
+		ep2_op3.setName("Receive22");
+		ep2_op3.setInterfce(inf2);
+		p2_r1.setOperation(ep2_op2);
+		p2_r2.setOperation(ep2_op3);
+		ep2.setURI("http://localhost");
+		
+		Endpoint ep3 = new Endpoint();
+		InterfaceModel inf3 = new InterfaceModel();
+		ep3.setURI("db:1234");
+		inf3.setEndpoint(ep3);
+		Operation ep3_op1 = new Operation();
+		ep3_op1.setName("receiveE3");
+		ep3_op1.setInterfce(inf3);
+		p3_r1.setOperation(ep3_op1);
+		
+		return c1;
+	}
+	
+	
 }
