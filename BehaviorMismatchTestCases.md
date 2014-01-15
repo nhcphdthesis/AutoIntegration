@@ -5,14 +5,14 @@ When the collaborating systems differ in their message exchange behaviors, media
 
 This page collects some collaboration scenarios with behavior mismatches. These scenarios are used as test cases of the proposed method. The sources of scenarios include:
 
-1. Service interaction patterns (SIPs)
-2. Complex scenarios I make up
-3. Real cases and variations
-4. Other literatures
+1. [Service interaction patterns (SIPs)](https://github.com/nhcphdthesis/AutoIntegration/blob/master/BehaviorMismatchTestCases.md#service-interaction-patterns-sips-variations)
+2. [Complex scenarios that I designed](https://github.com/nhcphdthesis/AutoIntegration/blob/master/BehaviorMismatchTestCases.md#sell-constructed-complex-scenarios)
+3. [Real cases and variations](https://github.com/nhcphdthesis/AutoIntegration/blob/master/BehaviorMismatchTestCases.md#real-cases-and-variations)
+4. [Other literatures](https://github.com/nhcphdthesis/AutoIntegration/blob/master/BehaviorMismatchTestCases.md#scenarios-from-literatures)
 
-Currently there are 21 test cases. These cases are tested using the method, and the results have been validated by integration experts. These test results show that the method is effective in designing routing solutions to resolve behavior mismatches.
+Currently there are *21* test cases. These cases are tested using the method, and the results have been validated by integration experts. These test results show that the method is effective in designing routing solutions to resolve behavior mismatches.
 
-The scenarios will be updated occasionally.
+_The scenarios will be updated occasionally._
 
 
 ##Service Interaction Patterns (SIPs) Variations
