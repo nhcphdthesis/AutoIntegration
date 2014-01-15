@@ -732,4 +732,72 @@ public class ScenarioFactory {
 		
 		return c1;
 	}
+	
+	public static CollaborationModel createOne2ManySendReceiveVariation1() {
+		Process p1 = new Process("p1");
+		Process p2 = new Process("p2");
+		Process p3 = new Process("p3");
+		SendTask p1_s = new SendTask("client send");
+		p1.addTask(p1_s);
+		ReceiveTask p1_r = new ReceiveTask("client receive");
+		p1.addTask(p1_r);
+		
+		
+		ReceiveTask p2_r = new ReceiveTask("server1 receuve");
+		p2.addTask(p2_r);
+		SendTask p2_s = new SendTask("server1 send");
+		p2.addTask(p2_s);
+
+		ReceiveTask p3_r = new ReceiveTask("server2 receive");
+		p3.addTask(p3_r);
+		SendTask p3_s = new SendTask("server2 send");
+		p3.addTask(p3_s);
+		
+		CollaborationModel c1 = new CollaborationModel();
+		c1.getParticipants().add(p1);
+		c1.getParticipants().add(p2);
+		c1.getParticipants().add(p3);
+		
+		c1.connect(p1_s, p2_r);
+		c1.connect(p1_s, p3_r);
+		c1.connect(p2_s, p1_r);
+		c1.connect(p3_s, p1_r);
+		
+		return c1;
+	}
+	
+	public static CollaborationModel createXitongLi(){
+		Process p1 = new Process("client");
+		Process p2 = new Process("engine");
+		
+		SendTask send_login = new SendTask("SendLogin");
+		p1.addTask(send_login);
+		SendTask send_request = new SendTask("SendRequest");
+		p1.addTask(send_request);
+		ReceiveTask receive_ack = new ReceiveTask("ReceiveACK");
+		p1.addTask(receive_ack);
+		ReceiveTask receive_result = new ReceiveTask("ReceiveResult");
+		p1.addTask(receive_result);
+		
+		ReceiveTask receive = new ReceiveTask("Receive Login and Request");
+		p2.addTask(receive);
+		SendTask send_partial_result = new SendTask("Send Partial Result");
+		send_partial_result.setLoop(true);
+		p2.addTask(send_partial_result);
+		SendTask send_finish = new SendTask("Send Finish");
+		p2.addTask(send_finish);
+		
+		CollaborationModel cm=new CollaborationModel();
+		
+		cm.addParticipant(p1);
+		cm.addParticipant(p2);
+		
+		cm.connect(send_login, receive);
+		cm.connect(send_request, receive);
+		cm.connect(send_partial_result, receive_result);
+		cm.connect(send_finish, receive_result);
+		
+		return cm;
+		
+	}
 }
