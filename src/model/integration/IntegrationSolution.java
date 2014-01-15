@@ -75,7 +75,7 @@ public class IntegrationSolution {
 		}
 		for (Channel exist : this.channels){
 			if (exist.getSrcFilter()==c.getSrcFilter()&&exist.getTgtFilter()==c.getTgtFilter()){
-				System.out.println("channel already exist");
+				System.out.println("channel between "+exist +" already exist");
 				return false;
 			}
 		}
