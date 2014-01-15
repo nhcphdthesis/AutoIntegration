@@ -17,7 +17,7 @@ public class SolutionGenerator {
 	 */
 	public static void main(String[] args) {
 		
-		CollaborationModel cm = ScenarioFactory.createOne2ManySendVariation1();
+		CollaborationModel cm = ScenarioFactory.createOneFromManyReceiveVariation3();
 		SolutionGenerator gen = new SolutionGenerator();
 
 		prl(gen.generateSolution(cm));

@@ -480,66 +480,7 @@ public class ScenarioFactory {
 		return c1;
 	}
 	
-	public static CollaborationModel createOneFromManyReceiveVariation3() {
-		Process p1 = new Process("p1");
-		Process p2 = new Process("p2");
-		Process p3 = new Process("p3");
-		SendTask p1_s1 = new SendTask("send1");
-		p1.addTask(p1_s1);
-		SendTask p1_s2 = new SendTask("send2");
-		p1.addTask(p1_s2);
-		SendTask p2_s1 = new SendTask("send 1 in p2");
-		p2.addTask(p2_s1);
 
-		ReceiveTask p3_r1 = new ReceiveTask("receive in P3");
-		p3.addTask(p3_r1);
-		
-		CollaborationModel c1 = new CollaborationModel();
-		c1.getParticipants().add(p1);
-		c1.getParticipants().add(p2);
-		c1.getParticipants().add(p3);
-		MessageFlow mf1 = new MessageFlow("mf1",p1_s1,p3_r1);
-		c1.getMfs().add(mf1);
-		MessageFlow mf2 = new MessageFlow("mf2",p1_s2,p3_r1);
-		c1.getMfs().add(mf2);
-		MessageFlow mf3 = new MessageFlow("mf3",p2_s1,p3_r1);
-		c1.getMfs().add(mf3);
-		
-		Endpoint ep1 = new Endpoint();
-		ep1.setURI("hl7://127.0.0.1");
-		InterfaceModel inf1 = new InterfaceModel();
-		inf1.setEndpoint(ep1);
-		Operation ep1_op1 = new Operation();
-		ep1_op1.setName("Send1");
-		ep1_op1.setInterfce(inf1);
-		p1_s1.setOperation(ep1_op1);
-		Operation ep1_op2 = new Operation();
-		ep1_op2.setName("Send2");
-		ep1_op2.setInterfce(inf1);
-		p1_s2.setOperation(ep1_op2);
-		
-		Endpoint ep2 = new Endpoint();
-		InterfaceModel inf2 = new InterfaceModel();
-		inf2.setEndpoint(ep2);
-		Operation ep2_op2 = new Operation();
-		ep2_op2.setName("Receive21");
-		ep2_op2.setInterfce(inf2);
-		Operation ep2_op3 = new Operation();
-		ep2_op3.setName("Receive22");
-		ep2_op3.setInterfce(inf2);
-		p2_s1.setOperation(ep2_op2);
-		ep2.setURI("http://localhost");
-		
-		Endpoint ep3 = new Endpoint();
-		InterfaceModel inf3 = new InterfaceModel();
-		ep3.setURI("db:1234");
-		inf3.setEndpoint(ep3);
-		Operation ep3_op1 = new Operation();
-		ep3_op1.setName("receiveE3");
-		ep3_op1.setInterfce(inf3);
-		p3_r1.setOperation(ep3_op1);
-		return c1;
-	}
 	
 
 
@@ -799,5 +740,31 @@ public class ScenarioFactory {
 		return c1;
 	}
 	
-	
+	public static CollaborationModel createOneFromManyReceiveVariation3() {
+		Process p1 = new Process("p1");
+		Process p2 = new Process("p2");
+		Process p3 = new Process("p3");
+		SendTask p1_s1 = new SendTask("send1");
+		p1.addTask(p1_s1);
+		SendTask p1_s2 = new SendTask("send2");
+		p1.addTask(p1_s2);
+		SendTask p2_s1 = new SendTask("send 1 in p2");
+		p2.addTask(p2_s1);
+
+		ReceiveTask p3_r1 = new ReceiveTask("receive in P3");
+		p3.addTask(p3_r1);
+		
+		CollaborationModel c1 = new CollaborationModel();
+		c1.getParticipants().add(p1);
+		c1.getParticipants().add(p2);
+		c1.getParticipants().add(p3);
+		MessageFlow mf1 = new MessageFlow("mf1",p1_s1,p3_r1);
+		c1.getMfs().add(mf1);
+		MessageFlow mf2 = new MessageFlow("mf2",p1_s2,p3_r1);
+		c1.getMfs().add(mf2);
+		MessageFlow mf3 = new MessageFlow("mf3",p2_s1,p3_r1);
+		c1.getMfs().add(mf3);
+		
+		return c1;
+	}
 }
