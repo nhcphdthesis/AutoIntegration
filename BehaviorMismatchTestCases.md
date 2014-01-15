@@ -369,7 +369,7 @@ _Solution_
     , Channel: channel [from=connector-DefaultOperation: Send Finish, to=auto-filter]
     ]
 
-![li-solution](/cases/Scenario from Li+Fan (solution).png)
+![li-solution](/cases/Scenario from Li+Fan solution.png)
 
 ###WS-I SCM scenario
 
