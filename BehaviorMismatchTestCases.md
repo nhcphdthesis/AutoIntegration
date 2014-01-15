@@ -27,7 +27,11 @@ Variation 1
 
 ![Single-send-var1](/cases/SIP/SIP-1-single-send-variation-1.png)
 
-_Solution_: aggregator.
+_Solution_: 
+
+    [Channel: channel [from=connector-DefaultOperation: send, to=auto-agg-loopsender]
+    , Channel: channel [from=auto-agg-loopsender, to=connector-DefaultOperation: receive]
+    ]
 
 Variation 2
 
