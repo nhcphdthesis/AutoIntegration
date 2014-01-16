@@ -10,9 +10,9 @@ This page collects some collaboration scenarios with behavior mismatches. These 
 3. [Real cases and variations](https://github.com/nhcphdthesis/AutoIntegration/blob/master/BehaviorMismatchTestCases.md#real-cases-and-variations)
 4. [Other literatures](https://github.com/nhcphdthesis/AutoIntegration/blob/master/BehaviorMismatchTestCases.md#scenarios-from-literatures)
 
-Currently there are **21** test cases. These cases are tested using the method, and the results have been validated by integration experts. These test results show that the method is effective in designing routing solutions to resolve behavior mismatches.
+Currently there are **22** test cases. These cases are tested using the method, and the results have been validated by integration experts. These test results show that the method is effective in designing routing solutions to resolve behavior mismatches.
 
-_The scenarios will be updated occasionally._
+_The scenarios are growing, updated occasionally._
 
 
 ##Service Interaction Patterns (SIPs) Variations
