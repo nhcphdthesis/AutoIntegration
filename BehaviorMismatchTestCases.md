@@ -383,10 +383,13 @@ _Solution_
 
 ###WS-I SCM scenario
 
-![WS-I](cases/WS-I SCM scenario.png)
+![WS-I](/cases/WS-I SCM scenario.png)
 
+###HL7v3 Scenario
 
+from WajahatAli Khan, Maqbool Hussain, Khalid Latif, Muhammad Afzal, Farooq Ahmad, Sungyoung Lee. Process interoperability in healthcare systems with dynamic semantic web services. Computing, 2013, 95(9): 837-862.
 
+![HL7](/cases/Case-Khan-HL7.png)
 
 
 
